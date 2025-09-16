@@ -1,40 +1,163 @@
+> 𝕏programmer💭:
+# 🚀 CollabCloud — Pre-Development Master Doc
+Tagline: One Dashboard for All Work Tools  
+Goal: Align vision, strategy, and technical direction before building.
 
-# Collab_Cloud
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+---
 
-## Getting Started
+## 📌 1. Vision & Business Case
 
-First, run the development server:
+### 🧭 Mission
+Make modern work frictionless by unifying all team tools into a single clean dashboard.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🌅 Vision
+A world where context-switching doesn’t kill productivity — teams focus on work, not tabs.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 💡 Value Proposition
+- Reduce tool fatigue and context switching.
+- Give managers a clear, real-time view across tools.
+- Speed up onboarding for new team members.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📊 Market Overview
+- TAM: Global SaaS collaboration market.
+- Key competitors: Station, Shift, Citrix Workspace, ClickUp, Notion.
+- Opportunity: True multi-tool integration + AI summarization + performance focus.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 💰 Business Model
+- Freemium → Team → Business → Enterprise.
+- Pricing based on # of connected tools and team size.
+- Long-term: API marketplace for third-party integrations.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧠 2. Personas & Jobs To Be Done (JTBD)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🧑‍💻 Tech Lead (Sam)
+- Goal: Track commits, PRs, and Jira tickets in one view.
+- Pain: Switching tools slows deep work, kills focus.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🎨 Designer (Maya)
+- Goal: Stay updated on Figma comments and new Jira tasks.
+- Pain: Notifications scattered across Slack, Figma, email.
 
-## Deploy on Vercel
+### 🧑‍💼 Manager (Luca)
+- Goal: Understand project status and team blockers quickly.
+- Pain: Hard to track progress across disconnected tools.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📋 3. Product Requirements Document (PRD)
+
+### 🎯 Core Use Cases
+- Unified feed of updates from connected tools.
+- Spotlight-style cross-tool search.
+- AI daily digest of all tool activity.
+- Inline actions: reply, comment, close ticket, approve PR.
+
+### ⚙️ Functional Requirements
+- OAuth integration for tools (Slack, Notion, Jira, Figma, GitHub).
+- Real-time sync engine.
+- Search index across all tools.
+- Role-based access and org management.
+
+### ⚡ Non-Functional Requirements
+- Fast loading (<2s feed load)
+- Secure (OAuth2, encrypted tokens, GDPR compliant)
+- Scalable (multi-tenant architecture)
+
+### 📈 Success Metrics
+- Daily Active Users (DAU)
+- Connected tools per user
+- Time saved per user/day
+- Team activation rate
+
+---
+
+## 📌 4. Feature Prioritization Matrix
+
+| Feature             | Priority | Notes                        |
+|---------------------|----------|-----------------------------|
+| Slack integration    | Must     | Real-time notifications     |
+| GitHub integration   | Must     | PRs, commits, issues         |
+| Jira integration     | Must     | Tasks, sprints               |
+| Notion integration   | Must     | Comments, pages               |
+| Figma integration    | Should   | File updates, comments       |
+| AI daily digest      | Should   | Summarizes activity           |
+| Admin console        | Could    | Org/user management           |
+| Third-party SDK      | Later    | Platform play                 |
+
+---
+
+## 🗺 5. UX + System Design
+
+### 🧩 Information Architecture
+- Dashboard (feed + search + digest)
+- Tool integrations (settings)
+- Notifications panel
+- Profile / Org Management
+
+### 🎨 UX Artifacts
+- User journey: Onboarding → Connect tools → See feed → Take action
+- Wireframes (Figma)
+- Clickable prototype
+
+### ⚙️ System Architecture
+- Connectors Layer: OAuth + API polling/webhooks for each tool  
+- Sync Engine: Normalizes data from each tool  
+- Data Store: MongoDB / Postgres + Search index (Elastic/Lucene)  
+- AI Layer: Summarizer → GPT model  
+- Frontend: React/Next.js app  
+- Backend: Node.js/Express with GraphQL or REST API
+
+### 📐 Data Model Draft
+- User (id, email, org_id, tokens)  
+- Organization (id, name, members)  
+- Connection (user_id, tool, access_token, scopes)  
+- Item (id, type, content, tool, created_at, updated_at)  
+- Feed (user_id, item_ids[])  
+
+---
+
+## ⚖️ 6. Ops, Security & Legal
+
+> 𝕏programmer💭:
+- ✅ Security baseline policy (OAuth2, token encryption, RBAC)
+- ✅ Draft privacy policy (GDPR, data processing)
+- ✅ Draft terms of service
+- ✅ Decide tech stack officially (FE, BE, DB, hosting)
+- ✅ Register domain + brand assets (logo, color system, typography, tone)
+- ✅ Set up version control + repo structure (GitHub/Monorepo)
+
+---
+
+## 📎 7. Resources & Tools
+
+- Docs: Notion, Confluence
+- Design: Figma, FigJam, Miro
+- Project Mgmt: Linear, Jira
+- Research: G2, Capterra, Statista
+- Pitching: Canva, Pitch
+- AI Helpers: OpenAI, Claude
+
+---
+
+## 🗓 8. Timeline (Pre-Dev Sprint Plan)
+
+| Week | Tasks |
+|---|---|
+| Week 1 | Vision, personas, JTBD → competitive analysis → business brief |
+| Week 2 | PRD + feature matrix → wireframes + system diagram → legal + security starter |
+
+---
+
+## ✅ Output Goal
+By end of pre-dev sprint, you’ll have:
+- Business brief
+- Personas & JTBD
+- Full PRD
+- Feature roadmap
+- UX wireframes
+- System architecture diagram
+- Security & legal starter pack
+- Brand + domain set up
 
