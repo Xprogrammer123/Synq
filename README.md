@@ -1,5 +1,5 @@
 > 𝕏programmer💭:
-# 🚀 CollabCloud — Pre-Development Master Doc
+# 🚀 Synq — Pre-Development Master Doc
 Tagline: One Dashboard for All Work Tools  
 Goal: Align vision, strategy, and technical direction before building.
 
