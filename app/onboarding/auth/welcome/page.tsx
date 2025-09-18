@@ -1,0 +1,102 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Mail, User } from "lucide-react";
+import Image from "next/image";
+
+
+export default function Welcome() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("")
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${API_URL}/auth/request-link`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name ,email }),
+      });
+
+      if (res.ok) {
+        router.push(`link-sent?status=success&email=${encodeURIComponent(email)}`);
+      } else {
+        router.push(`link-sent?status=error&email=${encodeURIComponent(email)}`);
+      }
+    } catch (err) {
+      router.push(`link-sent?status=error&email=${encodeURIComponent(email)}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 bg-no-repeat bg-cover bg-center"
+    style={{ backgroundImage: "url('/bg.png')" }}>
+      <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg">
+        {/* Logo */}
+        <div className="flex justify-center">
+          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+        </div>
+
+        {/* Heading */}
+        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900"
+        style={{ fontFamily: "SF Pro Display, sans-serif" }}>
+          Welcome to <span className="font-extrabold">Synq.</span>
+        </h2>
+        <p className="mt-2 text-center text-gray-700"
+        style={{ fontFamily: "DM Sans, sans-serif" }}>
+          Unify your workflow. Stay focused. Synq everything.
+        </p>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+          <div className="relative">
+            <User
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-800"
+              size={20}
+            />
+            <input
+              type="text"
+              placeholder="Enter full name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full rounded-xl border border-gray-300 bg-gray-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-black focus:bg-white focus:outline-none placeholder:text-gray-600"
+            />
+          </div>
+          <div className="relative">
+            <Mail
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-800"
+              size={20}
+            />
+            <input
+              type="email"
+              placeholder="Enter email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full rounded-xl border border-gray-300 bg-gray-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-black focus:bg-white focus:outline-none placeholder:text-gray-600"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-xl bg-black py-4 text-sm font-semibold text-white hover:bg-gray-800 transition disabled:opacity-50"
+          >
+            {loading ? "Sending..." : "Get Started"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
