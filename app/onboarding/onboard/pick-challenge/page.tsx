@@ -25,8 +25,8 @@ export default function PickChallenges() {
   };
 
   const handleContinue = () => {
-    if (selected.length > 0) {
-      alert("Synq personalized with: " + selected.join(", "));
+    if (selected.length > 0) if (selected) {
+      router.push("/onboarding/onboard/explore-integrations");
     } else {
       alert("Please select at least one challenge.");
     }
@@ -34,13 +34,12 @@ export default function PickChallenges() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
-      <div className="w-full max-w-lg rounded-3xl bg-white shadow-2xl p-10 relative">
+      <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl p-10 relative">
      
         <div className="flex justify-center mb-6">
           <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
-       
         <h1 className="text-3xl font-bold text-center text-black mb-2">
           What slows you down?
         </h1>
@@ -49,7 +48,7 @@ export default function PickChallenges() {
         </p>
 
      
-        <div className="space-y-4 mb-8">
+        <div className="space-y-2 mb-8">
           {challenges.map((challenge) => (
             <label
               key={challenge}

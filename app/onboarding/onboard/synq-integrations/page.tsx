@@ -1,0 +1,101 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, ArrowRight, Lock } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { DM_Sans } from "next/font/google";
+
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
+
+export default function SyncIntegrations() {
+  const router = useRouter();
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const integrations = [
+    { id: "slack", label: "Slack", desc: "Unify team convos.", img: "/icons/slack.png" },
+    { id: "figma", label: "Figma", desc: "Designs and feedback in one view.", img: "/icons/figma.png" },
+    { id: "notion", label: "Notion", desc: "Docs and notes at a glance.", img: "/icons/notion.png" },
+    { id: "github", label: "Github", desc: "Stay on top of code updates.", img: "/icons/github.png" },
+    { id: "jira", label: "Jira", desc: "Track issues without tab-hopping.", img: "/icons/jira.png" },
+  ];
+
+  const handleContinue = () => {
+    if (selected) {
+      router.push("/dashboard");
+    } else {
+      alert("Please select an integration to continue.");
+    }
+  };
+
+  return (
+    <div className={`min-h-screen flex items-center justify-center bg-gray-50 p-6 ${dmSans.className}`}>
+      <div className="w-full max-w-3xl rounded-3xl bg-white shadow-2xl p-10 relative">
+
+        <div className="flex justify-center mb-6">
+          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+        </div>
+
+
+        <h1 className="text-2xl font-bold text-center text-black mb-2">
+          Choose what to sync first
+        </h1>
+        <p className="text-gray-500 text-center mb-8">
+          Pick from our growing list of integrations. Start with the tools you use every day.
+        </p>
+
+
+        <div className="grid grid-cols-3 gap-4 mb-8">
+          {integrations.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setSelected(item.id)}
+              className={`relative flex flex-col items-start rounded-2xl p-6 border transition text-left ${selected === item.id
+                ? "bg-black text-white border-black"
+                : "bg-gray-50 border-gray-200 text-black hover:border-black"
+                }`}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Image src={item.img} alt={item.label} width={30} height={30} />
+                <span className="font-medium text-lg">{item.label}</span>
+              </div>
+
+              <p className="text-md mb-10 text-gray-500">{item.desc}</p>
+
+              <div className="absolute bottom-3 right-3 flex items-center gap-1 text-sm font-medium">
+                <Lock className="w-4 h-4" /> Authorize
+              </div>
+            </button>
+          ))}
+
+
+          <Link href="/onboarding/onboard/synq-integrations/integrations" className="flex flex-col justify-between bg-black text-white rounded-2xl p-6 cursor-pointer">
+            <p className="flex items-center gap-2 font-medium text-lg">
+              More <ArrowRight className="w-6 h-6" />
+            </p>
+            <span className="text-md">View all integrations</span>
+          </Link>
+        </div>
+
+
+        <button
+          onClick={handleContinue}
+          className="w-full py-3 rounded-xl bg-black text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+        >
+          Continue
+        </button>
+
+        <div className="flex items-center justify-between mb-5">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-1 text-gray-600 hover:text-black"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
