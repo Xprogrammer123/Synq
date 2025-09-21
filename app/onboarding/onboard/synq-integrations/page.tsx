@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ArrowRight, Lock } from "lucide-react";
+import { ArrowLeft, ArrowRight, Lock, Unlock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DM_Sans } from "next/font/google";
@@ -12,6 +12,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 export default function SyncIntegrations() {
   const router = useRouter();
   const [selected, setSelected] = useState<string | null>(null);
+  const [authStatus, setAuthStatus] = useState<Record<string, boolean>>({});
 
   const integrations = [
     { id: "slack", label: "Slack", desc: "Unify team convos.", img: "/icons/slack.png" },
@@ -20,6 +21,28 @@ export default function SyncIntegrations() {
     { id: "github", label: "Github", desc: "Stay on top of code updates.", img: "/icons/github.png" },
     { id: "jira", label: "Jira", desc: "Track issues without tab-hopping.", img: "/icons/jira.png" },
   ];
+
+  const handleConnect = (id: string) => {
+    setSelected(id);
+
+    if (id === "github") {
+      const popup = window.open(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/github/connect`,
+        "githubAuth",
+        "width=600,height=700"
+      );
+
+      const receiveMessage = (event: MessageEvent) => {
+        if (event.data === "github_connected") {
+          setAuthStatus((prev) => ({ ...prev, github: true }));
+          popup?.close();
+          window.removeEventListener("message", receiveMessage);
+        }
+      };
+
+      window.addEventListener("message", receiveMessage);
+    }
+  };
 
   const handleContinue = () => {
     if (selected) {
@@ -34,9 +57,8 @@ export default function SyncIntegrations() {
       <div className="w-full max-w-3xl rounded-3xl bg-white shadow-2xl p-10 relative">
 
         <div className="flex justify-center mb-6">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
-
 
         <h1 className="text-2xl font-bold text-center text-black mb-2">
           Choose what to sync first
@@ -45,16 +67,16 @@ export default function SyncIntegrations() {
           Pick from our growing list of integrations. Start with the tools you use every day.
         </p>
 
-
         <div className="grid grid-cols-3 gap-4 mb-8">
           {integrations.map((item) => (
             <button
               key={item.id}
-              onClick={() => setSelected(item.id)}
-              className={`relative flex flex-col items-start rounded-2xl p-6 border transition text-left ${selected === item.id
-                ? "bg-black text-white border-black"
-                : "bg-gray-50 border-gray-200 text-black hover:border-black"
-                }`}
+              onClick={() => handleConnect(item.id)}
+              className={`relative flex flex-col items-start rounded-2xl p-6 border transition text-left ${
+                selected === item.id
+                  ? "bg-violet-600 text-white border-black"
+                  : "bg-gray-50 border-gray-200 text-black hover:border-black"
+              }`}
             >
               <div className="flex items-center gap-2 mb-2">
                 <Image src={item.img} alt={item.label} width={30} height={30} />
@@ -64,13 +86,23 @@ export default function SyncIntegrations() {
               <p className="text-md mb-10 text-gray-500">{item.desc}</p>
 
               <div className="absolute bottom-3 right-3 flex items-center gap-1 text-sm font-medium">
-                <Lock className="w-4 h-4" /> Authorize
+                {authStatus[item.id] ? (
+                  <>
+                    <Unlock className="w-4 h-4 text-green-600" /> Authorized
+                  </>
+                ) : (
+                  <>
+                    <Lock className="w-4 h-4 text-gray-500" /> Unauthorized
+                  </>
+                )}
               </div>
             </button>
           ))}
 
-
-          <Link href="/onboarding/onboard/synq-integrations/integrations" className="flex flex-col justify-between bg-black text-white rounded-2xl p-6 cursor-pointer">
+          <Link
+            href="/onboarding/onboard/synq-integrations/integrations"
+            className="flex flex-col justify-between bg-violet-600 text-white rounded-2xl p-6 cursor-pointer"
+          >
             <p className="flex items-center gap-2 font-medium text-lg">
               More <ArrowRight className="w-6 h-6" />
             </p>
@@ -78,10 +110,9 @@ export default function SyncIntegrations() {
           </Link>
         </div>
 
-
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-black text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Continue
         </button>

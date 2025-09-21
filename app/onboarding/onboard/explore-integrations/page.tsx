@@ -20,7 +20,7 @@ export default function PickChallenges() {
       <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl p-10 relative">
      
         <div className="flex justify-center mb-6">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
         <h1 className="text-3xl font-bold text-center text-black mb-2">
@@ -33,7 +33,7 @@ export default function PickChallenges() {
      
         <button
           onClick={handleContinue}
-          className="w-full py-4 rounded-xl bg-black text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-4 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
          Explore Integrations
         </button>
@@ -56,7 +56,7 @@ export default function PickChallenges() {
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="w-3 h-3 rounded-full bg-black"></span>
+            <span className="w-3 h-3 rounded-full bg-violet-600"></span>
           </div>
         </div>
       </div>

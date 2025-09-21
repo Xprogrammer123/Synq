@@ -8,11 +8,11 @@ export default function MagicLinkSent() {
 
    const router = useRouter();
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-violet-100">
       <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg relative">
         {/* Success state */}
         <div className="flex justify-center mb-5">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
         <div className="flex justify-center">
           <Image src="/success.png" alt="Success" width={100} height={100} />
@@ -32,7 +32,7 @@ export default function MagicLinkSent() {
         </p>
         <a
           href="/mail"
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-black py-4 text-md font-semibold text-white hover:bg-gray-800 transition mb-3"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 py-4 text-md font-semibold text-white hover:bg-gray-800 transition mb-3"
         >
 
           Go to Dashboard

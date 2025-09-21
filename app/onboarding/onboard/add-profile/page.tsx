@@ -26,7 +26,7 @@ export default function AddProfile() {
             <div className="w-full max-w-lg rounded-3xl bg-white shadow-2xl p-10 relative">
                 {/* Logo */}
                 <div className="flex justify-center mb-6">
-                    <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+                    <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
                 </div>
 
                 {/* Heading */}
@@ -37,10 +37,10 @@ export default function AddProfile() {
                     Add a profile picture.
                 </h1>
 
-              
+
                 <div className="flex justify-center mb-8" >
                     <div className="relative">
-                        <div className="w-48 h-48 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                        <div className="w-48 h-48 rounded-full bg-violet-100 flex items-center justify-center overflow-hidden">
                             {profileImage ? (
                                 <Image
                                     src={profileImage}
@@ -50,14 +50,16 @@ export default function AddProfile() {
                                     className="object-cover w-full h-full"
                                 />
                             ) : (
-                                <ImageIcon className="w-16 h-16 text-black/40" />
+                                <div className="flex justify-center opacity-15">
+                                    <Image src="/imageavatar.png" alt="Synq Logo" width={100} height={100} />
+                                </div>
                             )}
                         </div>
 
 
                         <label
                             htmlFor="fileInput"
-                            className="absolute bottom-2 right-2 bg-black text-white p-3 rounded-full shadow-md hover:bg-gray-800 cursor-pointer"
+                            className="absolute bottom-2 right-2 bg-violet-600 text-white p-3 rounded-full shadow-md hover:bg-gray-800 cursor-pointer"
                         >
                             <PencilLine className="w-5 h-5" />
                         </label>
@@ -71,11 +73,11 @@ export default function AddProfile() {
                     </div>
                 </div>
 
-              
+
                 <button
-                onClick={handleSubmit}
+                    onClick={handleSubmit}
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-black text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+                    className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
                 >
                     Continue
                 </button>
@@ -94,7 +96,7 @@ export default function AddProfile() {
                 <div className="flex items-center justify-center">
                     <div className="flex gap-2">
                         <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-                        <span className="w-3 h-3 rounded-full bg-black"></span>
+                        <span className="w-3 h-3 rounded-full bg-violet-600"></span>
                         <span className="w-3 h-3 rounded-full bg-gray-200"></span>
                         <span className="w-3 h-3 rounded-full bg-gray-200"></span>
                     </div>

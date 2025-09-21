@@ -16,7 +16,7 @@ export default function Home() {
 
       <Link
         href="/onboarding/auth/welcome"
-        className="flex items-center justify-center gap-2 bg-black text-white rounded-xl py-4 px-8 text-center w-56 hover:bg-gray-800 transition"
+        className="flex items-center justify-center gap-2 bg-violet-600 text-white rounded-xl py-4 px-8 text-center w-56 hover:bg-gray-800 transition"
       >
         <span>Get Started</span>
         <ArrowRight size={18} />

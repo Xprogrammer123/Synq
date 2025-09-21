@@ -37,7 +37,7 @@ export default function PickChallenges() {
       <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl p-10 relative">
      
         <div className="flex justify-center mb-6">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
         <h1 className="text-3xl font-bold text-center text-black mb-2">
@@ -54,7 +54,7 @@ export default function PickChallenges() {
               key={challenge}
               className={`flex items-center gap-3 px-6 py-4 rounded-xl border cursor-pointer transition ${
                 selected.includes(challenge)
-                  ? "bg-black text-white border-black"
+                  ? "bg-violet-600 text-white border-black"
                   : "bg-gray-50 text-black border-gray-200 hover:border-black"
               }`}
             >
@@ -64,7 +64,7 @@ export default function PickChallenges() {
                 checked={selected.includes(challenge)}
                 onChange={() => toggleChallenge(challenge)}
                 className="appearance-none w-5 h-5 rounded-full border-2 border-gray-400 
-                           checked:bg-black checked:border-white"
+                           checked:bg-violet-600 checked:border-white"
               />
               {challenge}
             </label>
@@ -74,7 +74,7 @@ export default function PickChallenges() {
      
         <button
           onClick={handleContinue}
-          className="w-full py-4 rounded-xl bg-black text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-4 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Personalize my Synq
         </button>
@@ -96,7 +96,7 @@ export default function PickChallenges() {
           <div className="flex gap-2">
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="w-3 h-3 rounded-full bg-black"></span>
+            <span className="w-3 h-3 rounded-full bg-violet-600"></span>
             <span className="w-3 h-3 rounded-full bg-gray-200"></span>
           </div>
         </div>

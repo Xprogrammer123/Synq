@@ -39,12 +39,11 @@ export default function Welcome() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 bg-no-repeat bg-cover bg-center"
-    style={{ backgroundImage: "url('/bg.png')" }}>
+    <div className="flex min-h-screen items-center justify-center bg-white">
       <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg">
         {/* Logo */}
         <div className="flex justify-center">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
         {/* Heading */}
@@ -70,7 +69,7 @@ export default function Welcome() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full rounded-xl border border-gray-300 bg-gray-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-black focus:bg-white focus:outline-none placeholder:text-gray-600"
+              className="w-full rounded-xl border border-violet-300 bg-violet-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-violet-400 focus:bg-violet-200 focus:outline-none placeholder:text-gray-600"
             />
           </div>
           <div className="relative">
@@ -84,14 +83,14 @@ export default function Welcome() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border border-gray-300 bg-gray-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-black focus:bg-white focus:outline-none placeholder:text-gray-600"
+              className="w-full rounded-xl border border-violet-300 bg-violet-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-violet-400 focus:bg-violet-200 focus:outline-none placeholder:text-gray-600"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-black py-4 text-sm font-semibold text-white hover:bg-gray-800 transition disabled:opacity-50"
+            className="w-full rounded-xl bg-violet-600 py-4 text-sm font-semibold text-white hover:bg-gray-800 transition disabled:opacity-50"
           >
             {loading ? "Sending..." : "Get Started"}
           </button>

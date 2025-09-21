@@ -78,7 +78,7 @@ export default function Integrations() {
         onClick={() => toggleSelect(tool.id)}
         className={`flex items-center justify-between rounded-xl border-2 px-4 py-4 transition w-full ${
           isActive
-            ? "bg-black text-white border-black"
+            ? "bg-violet-600 text-white border-black"
             : "bg-gray-50 border-gray-200 text-black hover:border-black"
         }`}
       >
@@ -102,7 +102,7 @@ export default function Integrations() {
       <div className="w-full max-w-4xl rounded-3xl bg-white shadow-2xl p-10">
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
         <h1 className="text-3xl font-bold text-center text-black mb-10">
@@ -186,7 +186,7 @@ export default function Integrations() {
         {/* Continue button */}
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-black text-white text-lg font-medium hover:bg-black shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-violet-600 shadow-md mb-6"
         >
           Continue
         </button>

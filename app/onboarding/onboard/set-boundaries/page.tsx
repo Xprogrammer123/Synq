@@ -96,7 +96,7 @@ export default function BoundariesPage() {
     >
       <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl p-10 relative z-10">
         <div className="flex justify-center mb-6">
-          <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+          <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
         <h1 className="text-3xl font-bold text-center text-black mb-2">
@@ -116,7 +116,7 @@ export default function BoundariesPage() {
                 type="checkbox"
                 checked={chosenBoundaries.includes(item.id)}
                 onChange={() => toggleBoundary(item.id)}
-                className="appearance-none w-5 h-5 border-2 border-black rounded-full checked:bg-black checked:border-gray-200 p-2"
+                className="appearance-none w-5 h-5 border-2 border-black rounded-full checked:bg-violet-600 checked:border-gray-200 p-2"
               />
               <span className="text-black">{item.label}</span>
             </label>
@@ -125,7 +125,7 @@ export default function BoundariesPage() {
 
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-black text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Continue to Sync
         </button>
@@ -143,10 +143,10 @@ export default function BoundariesPage() {
 
       {/* Loading Modal */}
       {loading && (
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="absolute inset-0 bg-violet-600/40 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center gap-4 w-[90%] max-w-xl">
             <div className="flex flex-col items-center gap-4 mb-6">
-              <Image src="/synqicon.png" alt="Synq Logo" width={50} height={50} />
+              <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
               <Loader2 className="w-10 h-10 animate-spin text-black" />
             </div>
 
