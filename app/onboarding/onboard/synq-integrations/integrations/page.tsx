@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Lock, Check } from "lucide-react";
 import Image from "next/image";
@@ -8,11 +8,22 @@ import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
-export default function Integrations() {
+type Tool = {
+  id: string;
+  label: string;
+  img: string;
+};
+
+type Category = {
+  title: string;
+  items: Tool[];
+};
+
+function IntegrationsContent() {
   const router = useRouter();
   const [selected, setSelected] = useState<string[]>([]);
 
-  const categories = [
+  const categories: Category[] = [
     {
       title: "Dev Focused",
       items: [
@@ -71,15 +82,16 @@ export default function Integrations() {
     }
   };
 
-  const IntegrationCard = ({ tool }: { tool: any }) => {
+  // 🔹 Properly typed IntegrationCard
+  const IntegrationCard = ({ tool }: { tool: Tool }) => {
     const isActive = selected.includes(tool.id);
     return (
       <button
         onClick={() => toggleSelect(tool.id)}
         className={`flex items-center justify-between rounded-xl border-2 px-4 py-4 transition w-full ${
           isActive
-            ? "bg-violet-600 text-white border-black"
-            : "bg-gray-50 border-gray-200 text-black hover:border-black"
+            ? "bg-violet-600 text-white border-violet-400"
+            : "bg-violet-50 border-violet-200 text-gray-700 hover:border-violet-400"
         }`}
       >
         <div className="flex items-center gap-2">
@@ -203,5 +215,13 @@ export default function Integrations() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Integrations() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <IntegrationsContent />
+    </Suspense>
   );
 }

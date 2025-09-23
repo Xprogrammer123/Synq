@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import Image from "next/image";
 import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
-
 
 const integrationSentences: Record<string, string> = {
   github: "Syncing repos from GitHub",
@@ -25,13 +24,12 @@ const integrationSentences: Record<string, string> = {
   airtable: "Importing bases from Airtable",
 };
 
-export default function BoundariesPage() {
+function BoundariesContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selected, setSelected] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [currentIntegration, setCurrentIntegration] = useState<string>("");
-
 
   useEffect(() => {
     const integrations = searchParams.get("integrations");
@@ -67,22 +65,25 @@ export default function BoundariesPage() {
     setLoading(true);
   };
 
- 
   useEffect(() => {
     if (loading && selected.length > 0) {
       let index = 0;
-      setCurrentIntegration(integrationSentences[selected[index]] || selected[index]);
+      setCurrentIntegration(
+        integrationSentences[selected[index]] || selected[index]
+      );
 
       const interval = setInterval(() => {
         index++;
         if (index < selected.length) {
-          setCurrentIntegration(integrationSentences[selected[index]] || selected[index]);
+          setCurrentIntegration(
+            integrationSentences[selected[index]] || selected[index]
+          );
         } else {
           clearInterval(interval);
           setTimeout(() => {
             setLoading(false);
             router.push("/onboarding/onboard/onboard-success");
-          }, 800); 
+          }, 800);
         }
       }, 1500);
 
@@ -103,7 +104,7 @@ export default function BoundariesPage() {
           Set your boundaries
         </h1>
         <p className="text-gray-600 text-center mb-8">
-          Choose what Synq can see and share. You’re in full control.
+          Choose what Synq can see and share. You&apos;re in full control.
         </p>
 
         <div className="space-y-4 mb-8">
@@ -154,7 +155,8 @@ export default function BoundariesPage() {
               Getting everything in Synq
             </h1>
             <p className="text-gray-600 text-center mb-8">
-              We're pulling your recent data so you can hit the ground running.
+              We&apos;re pulling your recent data so you can hit the ground
+              running.
             </p>
 
             <p className="text-lg font-medium text-black">
@@ -164,5 +166,13 @@ export default function BoundariesPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function BoundariesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BoundariesContent />
+    </Suspense>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, PencilLine, Image as ImageIcon } from "lucide-react";
+import { ArrowLeft, PencilLine} from "lucide-react";
 import Image from "next/image";
 
 export default function AddProfile() {

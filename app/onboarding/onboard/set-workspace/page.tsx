@@ -85,7 +85,7 @@ export default function WorkspaceSetup() {
           Set up your workspace
         </h1>
         <p className="text-gray-500 text-center mt-2 mb-8">
-          Give your team a home inside Synq. <br /> Don’t worry, you can change
+          Give your team a home inside Synq. <br /> Don&apos;t worry, you can change
           this later.
         </p>
 

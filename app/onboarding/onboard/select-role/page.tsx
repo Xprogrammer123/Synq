@@ -13,9 +13,9 @@ export default function SelectRole() {
     { id: "designer", label: "Designer", img: "/roles/designer.png" },
     { id: "manager", label: "Manager", img: "/roles/manager.png" },
     { id: "developer", label: "Developer", img: "/roles/developer.png" },
-    { id: "marketer", label: "Marketer", img: "/roles/marketer.png" },
-    { id: "analyst", label: "Analyst", img: "/roles/analyst.png" },
-    { id: "founder", label: "Founder", img: "/roles/founder.png" },
+    { id: "marketer", label: "Marketer", img: "/roles/developer.png" },
+    { id: "analyst", label: "Analyst", img: "/roles/developer.png" },
+    { id: "founder", label: "Founder", img: "/roles/developer.png" },
   ];
 
   const handleContinue = () => {
@@ -39,7 +39,7 @@ export default function SelectRole() {
           Tell us what you do best
         </h1>
         <p className="text-gray-500 text-center mb-8">
-          Pick the role that matches you. <br /> We’ll personalize Synq to fit.
+          Pick the role that matches you. <br /> We&apos;ll personalize Synq to fit.
         </p>
 
 
@@ -51,7 +51,7 @@ export default function SelectRole() {
               className={`flex flex-col items-center justify-center rounded-2xl p-6 border transition ${
                 selected === role.id
                   ? "bg-violet-600 text-white border-black"
-                  : "bg-gray-50 border-gray-200 text-black hover:border-black"
+                  : "bg-violet-50 border-gray-200 text-black hover:border-violet-400"
               }`}
             >
               <Image

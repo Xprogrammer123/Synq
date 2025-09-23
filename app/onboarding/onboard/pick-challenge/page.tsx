@@ -54,16 +54,16 @@ export default function PickChallenges() {
               key={challenge}
               className={`flex items-center gap-3 px-6 py-4 rounded-xl border cursor-pointer transition ${
                 selected.includes(challenge)
-                  ? "bg-violet-600 text-white border-black"
-                  : "bg-gray-50 text-black border-gray-200 hover:border-black"
+                  ? "bg-violet-600 text-white border-violet-400"
+                  : "bg-violet-50 text-black border-violet-200 hover:border-violet-400"
               }`}
             >
-          
+            
               <input
                 type="checkbox"
                 checked={selected.includes(challenge)}
                 onChange={() => toggleChallenge(challenge)}
-                className="appearance-none w-5 h-5 rounded-full border-2 border-gray-400 
+                className="appearance-none w-5 h-5 rounded-full border-2 border-violet-700 
                            checked:bg-violet-600 checked:border-white"
               />
               {challenge}

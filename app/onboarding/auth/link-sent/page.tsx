@@ -1,12 +1,12 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
-import {XCircle, Mail, ArrowLeft } from "lucide-react";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { XCircle, Mail, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
-export default function MagicLinkSent() {
+function LinkSentContent() {
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   const status = searchParams.get("status");
   const email = searchParams.get("email") || "";
@@ -18,8 +18,13 @@ export default function MagicLinkSent() {
 
     if (domain.includes("gmail")) return "https://mail.google.com";
     if (domain.includes("yahoo")) return "https://mail.yahoo.com";
-    if (domain.includes("outlook") || domain.includes("hotmail") || domain.includes("live"))
+    if (
+      domain.includes("outlook") ||
+      domain.includes("hotmail") ||
+      domain.includes("live")
+    )
       return "https://outlook.live.com";
+
     return `https://${domain}`;
   };
 
@@ -28,21 +33,34 @@ export default function MagicLinkSent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-white">
       <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg relative">
-       
         {status === "success" ? (
           <>
             <div className="flex justify-center mb-5">
-              <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
+              <Image
+                src="/Synqicon.png"
+                alt="Synq Logo"
+                width={50}
+                height={50}
+              />
             </div>
             <div className="flex justify-center">
-              <Image src="/success.png" alt="Success" width={100} height={100} />
+              <Image
+                src="/success.png"
+                alt="Success"
+                width={100}
+                height={100}
+              />
             </div>
-            <h2 className="mt-4 text-4xl font-bold text-black text-center"
-            style={{ fontFamily: "SF Pro Display, sans-serif" }}>
+            <h2
+              className="mt-4 text-4xl font-bold text-black text-center"
+              style={{ fontFamily: "SF Pro Display, sans-serif" }}
+            >
               Magic Link sent!
             </h2>
-            <p className="text-gray-600 mt-2 text-center mb-8"
-            style={{ fontFamily: "DM Sans, sans-serif" }}>
+            <p
+              className="text-gray-600 mt-2 text-center mb-8"
+              style={{ fontFamily: "DM Sans, sans-serif" }}
+            >
               Kindly check your email for the magic link verification
             </p>
             <a
@@ -54,12 +72,16 @@ export default function MagicLinkSent() {
               <Mail size={18} />
               Go to Mail
             </a>
-
           </>
         ) : (
           <>
-          <div className="flex justify-center mb-5">
-              <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
+            <div className="flex justify-center mb-5">
+              <Image
+                src="/Synqicon.png"
+                alt="Synq Logo"
+                width={50}
+                height={50}
+              />
             </div>
             <XCircle className="mx-auto h-30 w-30 text-red-500" />
             <h2 className="mt-4 text-2xl font-bold text-red-700 text-center">
@@ -70,8 +92,6 @@ export default function MagicLinkSent() {
             </p>
             <a
               href="/onboarding/auth/welcome"
-              target="_blank"
-              rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 py-4 text-sm font-semibold text-white hover:bg-gray-800 transition"
             >
               <ArrowLeft size={18} />
@@ -81,5 +101,13 @@ export default function MagicLinkSent() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function MagicLinkSentPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LinkSentContent />
+    </Suspense>
   );
 }

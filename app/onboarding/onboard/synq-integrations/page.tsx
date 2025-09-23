@@ -9,10 +9,30 @@ import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
+type GithubMessage = "github_connected";
+
 export default function SyncIntegrations() {
   const router = useRouter();
   const [selected, setSelected] = useState<string | null>(null);
   const [authStatus, setAuthStatus] = useState<Record<string, boolean>>({});
+
+
+  useEffect(() => {
+    const saved = localStorage.getItem("integrations");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      setAuthStatus(parsed.authStatus || {});
+      if (parsed.selected?.length > 0) setSelected(parsed.selected[0]); // single select page
+    }
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem(
+      "integrations",
+      JSON.stringify({ selected: selected ? [selected] : [], authStatus })
+    );
+  }, [selected, authStatus]);
 
   const integrations = [
     { id: "slack", label: "Slack", desc: "Unify team convos.", img: "/icons/slack.png" },
@@ -32,7 +52,7 @@ export default function SyncIntegrations() {
         "width=600,height=700"
       );
 
-      const receiveMessage = (event: MessageEvent) => {
+      const receiveMessage = (event: MessageEvent<GithubMessage>) => {
         if (event.data === "github_connected") {
           setAuthStatus((prev) => ({ ...prev, github: true }));
           popup?.close();
@@ -46,7 +66,11 @@ export default function SyncIntegrations() {
 
   const handleContinue = () => {
     if (selected) {
-      router.push("/dashboard");
+      router.push(
+        `/onboarding/onboard/set-boundaries?integrations=${encodeURIComponent(
+          JSON.stringify([selected])
+        )}`
+      );
     } else {
       alert("Please select an integration to continue.");
     }
@@ -55,7 +79,6 @@ export default function SyncIntegrations() {
   return (
     <div className={`min-h-screen flex items-center justify-center bg-gray-50 p-6 ${dmSans.className}`}>
       <div className="w-full max-w-3xl rounded-3xl bg-white shadow-2xl p-10 relative">
-
         <div className="flex justify-center mb-6">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
@@ -72,10 +95,10 @@ export default function SyncIntegrations() {
             <button
               key={item.id}
               onClick={() => handleConnect(item.id)}
-              className={`relative flex flex-col items-start rounded-2xl p-6 border transition text-left ${
+              className={`relative flex flex-col items-start rounded-2xl px-6 py-3 border transition text-left ${
                 selected === item.id
                   ? "bg-violet-600 text-white border-black"
-                  : "bg-gray-50 border-gray-200 text-black hover:border-black"
+                  : "bg-violet-50 border-violet-200 text-gray-700 hover:border-violet-400"
               }`}
             >
               <div className="flex items-center gap-2 mb-2">
@@ -83,7 +106,7 @@ export default function SyncIntegrations() {
                 <span className="font-medium text-lg">{item.label}</span>
               </div>
 
-              <p className="text-md mb-10 text-gray-500">{item.desc}</p>
+              <p className="text-md mb-10">{item.desc}</p>
 
               <div className="absolute bottom-3 right-3 flex items-center gap-1 text-sm font-medium">
                 {authStatus[item.id] ? (

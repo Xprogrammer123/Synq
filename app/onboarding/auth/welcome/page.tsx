@@ -23,7 +23,7 @@ export default function Welcome() {
       const res = await fetch(`${API_URL}/auth/request-link`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name ,email }),
+        body: JSON.stringify({ name, email }),
       });
 
       if (res.ok) {
@@ -32,8 +32,10 @@ export default function Welcome() {
         router.push(`link-sent?status=error&email=${encodeURIComponent(email)}`);
       }
     } catch (err) {
+      console.error("Request link error:", err);
       router.push(`link-sent?status=error&email=${encodeURIComponent(email)}`);
-    } finally {
+    }
+    finally {
       setLoading(false);
     }
   };
@@ -48,11 +50,11 @@ export default function Welcome() {
 
         {/* Heading */}
         <h2 className="mt-6 text-center text-3xl font-bold text-gray-900"
-        style={{ fontFamily: "SF Pro Display, sans-serif" }}>
+          style={{ fontFamily: "SF Pro Display, sans-serif" }}>
           Welcome to <span className="font-extrabold">Synq.</span>
         </h2>
         <p className="mt-2 text-center text-gray-700"
-        style={{ fontFamily: "DM Sans, sans-serif" }}>
+          style={{ fontFamily: "DM Sans, sans-serif" }}>
           Unify your workflow. Stay focused. Synq everything.
         </p>
 
