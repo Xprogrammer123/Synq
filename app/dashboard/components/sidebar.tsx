@@ -8,7 +8,7 @@ import React from "react"
 
 return (
     <>
-<div className="bg-white w-full h-screen">
+<div className="bg-[#151515] w-full h-screen">
     
 
 

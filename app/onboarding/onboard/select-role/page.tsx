@@ -27,15 +27,15 @@ export default function SelectRole() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
-      <div className="w-full max-w-lg rounded-3xl bg-white shadow-2xl p-10 relative">
+    <div className="min-h-screen flex items-center justify-center bg-black p-6">
+      <div className="w-full max-w-lg rounded-3xl bg-[#151515] shadow-2xl p-10 relative">
      
         <div className="flex justify-center mb-6">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
       
-        <h1 className="text-3xl font-bold text-center text-black mb-2">
+        <h1 className="text-3xl font-bold text-center text-white mb-2">
           Tell us what you do best
         </h1>
         <p className="text-gray-500 text-center mb-8">
@@ -48,10 +48,10 @@ export default function SelectRole() {
             <button
               key={role.id}
               onClick={() => setSelected(role.id)}
-              className={`flex flex-col items-center justify-center rounded-2xl p-6 border transition ${
+              className={`flex flex-col items-center justify-center rounded-2xl p-6 transition ${
                 selected === role.id
-                  ? "bg-violet-600 text-white border-black"
-                  : "bg-violet-50 border-gray-200 text-black hover:border-violet-400"
+                  ? "bg-[#6B48FF] text-white border-black"
+                  : "bg-violet-900/10 text-white hover:border-violet-400"
               }`}
             >
               <Image
@@ -69,7 +69,7 @@ export default function SelectRole() {
         {/* Continue button */}
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Continue
         </button>
@@ -78,7 +78,7 @@ export default function SelectRole() {
         <div className="flex items-center justify-between mb-5">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-600 hover:text-black"
+            className="flex items-center gap-1 text-white hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
@@ -87,10 +87,10 @@ export default function SelectRole() {
    
         <div className="flex items-center justify-center">
           <div className="flex gap-2">
-            <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="w-3 h-3 rounded-full bg-violet-600"></span>
-            <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="w-3 h-3 rounded-full bg-gray-200"></span>
+            <span className="w-3 h-3 rounded-full bg-gray-600"></span>
+            <span className="w-3 h-3 rounded-full bg-[#6B48FF]"></span>
+            <span className="w-3 h-3 rounded-full bg-gray-600"></span>
+            <span className="w-3 h-3 rounded-full bg-gray-600"></span>
           </div>
         </div>
       </div>

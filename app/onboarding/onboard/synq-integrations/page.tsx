@@ -77,13 +77,13 @@ export default function SyncIntegrations() {
   };
 
   return (
-    <div className={`min-h-screen flex items-center justify-center bg-gray-50 p-6 ${dmSans.className}`}>
-      <div className="w-full max-w-3xl rounded-3xl bg-white shadow-2xl p-10 relative">
+    <div className={`min-h-screen flex items-center justify-center bg-black p-6 ${dmSans.className}`}>
+      <div className="w-full max-w-3xl rounded-3xl bg-[#151515] shadow-2xl p-10 relative">
         <div className="flex justify-center mb-6">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
-        <h1 className="text-2xl font-bold text-center text-black mb-2">
+        <h1 className="text-2xl font-bold text-center text-white mb-2">
           Choose what to sync first
         </h1>
         <p className="text-gray-500 text-center mb-8">
@@ -97,8 +97,8 @@ export default function SyncIntegrations() {
               onClick={() => handleConnect(item.id)}
               className={`relative flex flex-col items-start rounded-2xl px-6 py-3 border transition text-left ${
                 selected === item.id
-                  ? "bg-violet-600 text-white border-black"
-                  : "bg-violet-50 border-violet-200 text-gray-700 hover:border-violet-400"
+                  ? "bg-[#6B48FF] text-gray-200 border-black"
+                  : "bg-violet-800/10 border-violet-800 text-white hover:border-violet-400"
               }`}
             >
               <div className="flex items-center gap-2 mb-2">
@@ -124,7 +124,7 @@ export default function SyncIntegrations() {
 
           <Link
             href="/onboarding/onboard/synq-integrations/integrations"
-            className="flex flex-col justify-between bg-violet-600 text-white rounded-2xl p-6 cursor-pointer"
+            className="flex flex-col justify-between bg-[#6B48FF] text-white rounded-2xl p-6 cursor-pointer"
           >
             <p className="flex items-center gap-2 font-medium text-lg">
               More <ArrowRight className="w-6 h-6" />
@@ -135,7 +135,7 @@ export default function SyncIntegrations() {
 
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Continue
         </button>
@@ -143,7 +143,7 @@ export default function SyncIntegrations() {
         <div className="flex items-center justify-between mb-5">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-600 hover:text-black"
+            className="flex items-center gap-1 text-white hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back

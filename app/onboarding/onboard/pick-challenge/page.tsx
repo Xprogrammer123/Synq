@@ -33,14 +33,14 @@ export default function PickChallenges() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
-      <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl p-10 relative">
+    <div className="min-h-screen flex items-center justify-center bg-black p-6">
+      <div className="w-full max-w-xl rounded-3xl bg-[#151515] shadow-2xl p-10 relative">
      
         <div className="flex justify-center mb-6">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
-        <h1 className="text-3xl font-bold text-center text-black mb-2">
+        <h1 className="text-3xl font-bold text-center text-white mb-2">
           What slows you down?
         </h1>
         <p className="text-gray-500 text-center mb-8">
@@ -52,10 +52,10 @@ export default function PickChallenges() {
           {challenges.map((challenge) => (
             <label
               key={challenge}
-              className={`flex items-center gap-3 px-6 py-4 rounded-xl border cursor-pointer transition ${
+              className={`flex items-center gap-3 px-6 py-4 rounded-xl cursor-pointer transition ${
                 selected.includes(challenge)
-                  ? "bg-violet-600 text-white border-violet-400"
-                  : "bg-violet-50 text-black border-violet-200 hover:border-violet-400"
+                  ? "bg-[#6B48FF] text-white border-violet-400"
+                  : "bg-violet-900/10 text-white hover:border-violet-400"
               }`}
             >
             
@@ -64,7 +64,7 @@ export default function PickChallenges() {
                 checked={selected.includes(challenge)}
                 onChange={() => toggleChallenge(challenge)}
                 className="appearance-none w-5 h-5 rounded-full border-2 border-violet-700 
-                           checked:bg-violet-600 checked:border-white"
+                           checked:bg-[#6B48FF] checked:border-white"
               />
               {challenge}
             </label>
@@ -74,7 +74,7 @@ export default function PickChallenges() {
      
         <button
           onClick={handleContinue}
-          className="w-full py-4 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-4 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Personalize my Synq
         </button>
@@ -83,7 +83,7 @@ export default function PickChallenges() {
         <div className="flex items-center justify-between mb-5">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-600 hover:text-black"
+            className="flex items-center gap-1 text-gray-400 hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
@@ -94,10 +94,10 @@ export default function PickChallenges() {
         <div className="flex items-center justify-center">
          
           <div className="flex gap-2">
-            <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="w-3 h-3 rounded-full bg-gray-200"></span>
-            <span className="w-3 h-3 rounded-full bg-violet-600"></span>
-            <span className="w-3 h-3 rounded-full bg-gray-200"></span>
+            <span className="w-3 h-3 rounded-full bg-gray-600"></span>
+            <span className="w-3 h-3 rounded-full bg-gray-600"></span>
+            <span className="w-3 h-3 rounded-full bg-[#6B48FF]"></span>
+            <span className="w-3 h-3 rounded-full bg-gray-600"></span>
           </div>
         </div>
       </div>

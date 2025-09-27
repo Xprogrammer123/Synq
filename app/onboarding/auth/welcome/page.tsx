@@ -41,19 +41,19 @@ export default function Welcome() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white">
-      <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-black">
+      <div className="w-full max-w-xl rounded-3xl bg-[#151515] p-10 shadow-lg">
         {/* Logo */}
         <div className="flex justify-center">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
         {/* Heading */}
-        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900"
+        <h2 className="mt-6 text-center text-3xl font-bold text-white"
           style={{ fontFamily: "SF Pro Display, sans-serif" }}>
           Welcome to <span className="font-extrabold">Synq.</span>
         </h2>
-        <p className="mt-2 text-center text-gray-700"
+        <p className="mt-2 text-center text-gray-400"
           style={{ fontFamily: "DM Sans, sans-serif" }}>
           Unify your workflow. Stay focused. Synq everything.
         </p>
@@ -62,7 +62,7 @@ export default function Welcome() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
           <div className="relative">
             <User
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-800"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-700"
               size={20}
             />
             <input
@@ -71,12 +71,12 @@ export default function Welcome() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full rounded-xl border border-violet-300 bg-violet-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-violet-400 focus:bg-violet-200 focus:outline-none placeholder:text-gray-600"
+              className="w-full rounded-xl border border-violet-300 bg-violet-800/10 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-violet-400 focus:bg-violet-200 focus:outline-none placeholder:text-gray-400"
             />
           </div>
           <div className="relative">
             <Mail
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-800"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-700"
               size={20}
             />
             <input
@@ -85,14 +85,14 @@ export default function Welcome() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border border-violet-300 bg-violet-100 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-violet-400 focus:bg-violet-200 focus:outline-none placeholder:text-gray-600"
+              className="w-full rounded-xl border border-violet-300 bg-violet-800/10 py-4 pl-10 pr-4 text-md text-gray-700 focus:border-violet-400 focus:bg-violet-200 focus:outline-none placeholder:text-gray-400"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-violet-600 py-4 text-sm font-semibold text-white hover:bg-gray-800 transition disabled:opacity-50"
+            className="w-full rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-gray-800 transition disabled:opacity-50"
           >
             {loading ? "Sending..." : "Get Started"}
           </button>

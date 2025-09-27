@@ -31,8 +31,8 @@ function LinkSentContent() {
   const mailUrl = getMailProviderUrl(email);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white">
-      <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg relative">
+    <div className="flex min-h-screen items-center justify-center bg-black">
+      <div className="w-full max-w-xl rounded-3xl bg-[#151515] p-10 shadow-lg relative">
         {status === "success" ? (
           <>
             <div className="flex justify-center mb-5">
@@ -52,13 +52,13 @@ function LinkSentContent() {
               />
             </div>
             <h2
-              className="mt-4 text-4xl font-bold text-black text-center"
+              className="mt-4 text-4xl font-bold text-white text-center"
               style={{ fontFamily: "SF Pro Display, sans-serif" }}
             >
               Magic Link sent!
             </h2>
             <p
-              className="text-gray-600 mt-2 text-center mb-8"
+              className="text-gray-400 mt-2 text-center mb-8"
               style={{ fontFamily: "DM Sans, sans-serif" }}
             >
               Kindly check your email for the magic link verification
@@ -67,7 +67,7 @@ function LinkSentContent() {
               href={mailUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 py-4 text-sm font-semibold text-white hover:bg-gray-800 transition mb-3"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-gray-800 transition mb-3"
             >
               <Mail size={18} />
               Go to Mail
@@ -87,12 +87,12 @@ function LinkSentContent() {
             <h2 className="mt-4 text-2xl font-bold text-red-700 text-center">
               Something went wrong
             </h2>
-            <p className="text-gray-600 mt-2 mb-8 text-center">
+            <p className="text-gray-400 mt-2 mb-8 text-center">
               Please try again or check your email address.
             </p>
             <a
               href="/onboarding/auth/welcome"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 py-4 text-sm font-semibold text-white hover:bg-gray-800 transition"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-gray-800 transition"
             >
               <ArrowLeft size={18} />
               Go Back

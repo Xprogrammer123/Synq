@@ -9,7 +9,7 @@ export default function MagicLinkSent() {
    const router = useRouter();
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg relative">
+      <div className="w-full max-w-xl rounded-3xl bg-[#151515] p-10 shadow-lg relative">
         {/* Success state */}
         <div className="flex justify-center mb-5">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
@@ -18,7 +18,7 @@ export default function MagicLinkSent() {
           <Image src="/success.png" alt="Success" width={100} height={100} />
         </div>
         <h2
-          className="mt-4 text-4xl font-bold text-black text-center"
+          className="mt-4 text-4xl font-bold text-white text-center"
           style={{ fontFamily: "SF Pro Display, sans-serif" }}
         >
           You&apos;re all Synq&apos;d up
@@ -32,7 +32,7 @@ export default function MagicLinkSent() {
         </p>
         <a
           href="/dashboard"
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 py-4 text-md font-semibold text-white hover:bg-gray-800 transition mb-3"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-md font-semibold text-white hover:bg-gray-800 transition mb-3"
         >
 
           Go to Dashboard
@@ -40,7 +40,7 @@ export default function MagicLinkSent() {
         <div className="flex items-center justify-between">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-600 hover:text-black"
+            className="flex items-center gap-1 text-gray-400 hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back

@@ -93,17 +93,17 @@ function BoundariesContent() {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center bg-gray-50 p-6 ${dmSans.className} relative`}
+      className={`min-h-screen flex items-center justify-center bg-black p-6 ${dmSans.className} relative`}
     >
-      <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl p-10 relative z-10">
+      <div className="w-full max-w-xl rounded-3xl bg-[#151515] shadow-2xl p-10 relative z-10">
         <div className="flex justify-center mb-6">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
-        <h1 className="text-3xl font-bold text-center text-black mb-2">
+        <h1 className="text-3xl font-bold text-center text-white mb-2">
           Set your boundaries
         </h1>
-        <p className="text-gray-600 text-center mb-8">
+        <p className="text-gray-400 text-center mb-8">
           Choose what Synq can see and share. You&apos;re in full control.
         </p>
 
@@ -117,16 +117,16 @@ function BoundariesContent() {
                 type="checkbox"
                 checked={chosenBoundaries.includes(item.id)}
                 onChange={() => toggleBoundary(item.id)}
-                className="appearance-none w-5 h-5 border-2 border-black rounded-full checked:bg-violet-600 checked:border-gray-200 p-2"
+                className="appearance-none w-5 h-5 border border-black rounded-full checked:bg-[#6B48FF] checked:border-gray-200 p-2"
               />
-              <span className="text-black">{item.label}</span>
+              <span className="text-white">{item.label}</span>
             </label>
           ))}
         </div>
 
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
         >
           Continue to Sync
         </button>
@@ -134,7 +134,7 @@ function BoundariesContent() {
         <div className="flex items-center justify-between">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-600 hover:text-black"
+            className="flex items-center gap-1 text-white hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
@@ -144,22 +144,22 @@ function BoundariesContent() {
 
       {/* Loading Modal */}
       {loading && (
-        <div className="absolute inset-0 bg-violet-600/40 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center gap-4 w-[90%] max-w-xl">
+        <div className="absolute inset-0 bg-[#6B48FF]/40 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-[#151515] rounded-2xl shadow-lg p-10 flex flex-col items-center gap-4 w-[90%] max-w-xl">
             <div className="flex flex-col items-center gap-4 mb-6">
               <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
-              <Loader2 className="w-10 h-10 animate-spin text-black" />
+              <Loader2 className="w-10 h-10 animate-spin text-white" />
             </div>
 
-            <h1 className="text-3xl font-bold text-center text-black mb-2">
+            <h1 className="text-3xl font-bold text-center text-white mb-2">
               Getting everything in Synq
             </h1>
-            <p className="text-gray-600 text-center mb-8">
+            <p className="text-gray-400 text-center mb-8">
               We&apos;re pulling your recent data so you can hit the ground
               running.
             </p>
 
-            <p className="text-lg font-medium text-black">
+            <p className="text-lg font-medium text-white">
               <span className="font-bold">{currentIntegration}</span>...
             </p>
           </div>

@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center h-screen w-full bg-gray-50">
+    <section className="flex flex-col items-center justify-center h-screen w-full bg-black">
       <Image
         src="/synq.png"
         alt="Synq Hero"
@@ -16,7 +16,7 @@ export default function Home() {
 
       <Link
         href="/onboarding/auth/welcome"
-        className="flex items-center justify-center gap-2 bg-violet-600 text-white rounded-xl py-4 px-8 text-center w-56 hover:bg-gray-800 transition"
+        className="flex items-center justify-center gap-2 bg-[#6B48FF] text-white rounded-xl py-4 px-8 text-center w-56 hover:bg-gray-800 transition"
       >
         <span>Get Started</span>
         <ArrowRight size={18} />

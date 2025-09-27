@@ -88,10 +88,10 @@ function IntegrationsContent() {
     return (
       <button
         onClick={() => toggleSelect(tool.id)}
-        className={`flex items-center justify-between rounded-xl border-2 px-4 py-4 transition w-full ${
+        className={`flex items-center justify-between rounded-xl border px-4 py-4 transition w-full ${
           isActive
-            ? "bg-violet-600 text-white border-violet-400"
-            : "bg-violet-50 border-violet-200 text-gray-700 hover:border-violet-400"
+            ? "bg-[#6B48FF] text-white border-violet-400"
+            : "bg-violet-900/10 border-violet-800 text-gray-200 hover:border-violet-400"
         }`}
       >
         <div className="flex items-center gap-2">
@@ -101,7 +101,7 @@ function IntegrationsContent() {
         {isActive ? (
           <Check className="w-5 h-5 text-white" />
         ) : (
-          <Lock className="w-4 h-4 text-gray-500" />
+          <Lock className="w-4 h-4 text-violet-800" />
         )}
       </button>
     );
@@ -109,15 +109,15 @@ function IntegrationsContent() {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center bg-white p-6 ${dmSans.className}`}
+      className={`min-h-screen flex items-center justify-center bg-[#151515] p-6 ${dmSans.className}`}
     >
-      <div className="w-full max-w-4xl rounded-3xl bg-white shadow-2xl p-10">
+      <div className="w-full max-w-4xl rounded-3xl bg-[#151515] shadow-2xl p-10">
         {/* Logo */}
         <div className="flex justify-center mb-6">
           <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />
         </div>
 
-        <h1 className="text-3xl font-bold text-center text-black mb-10">
+        <h1 className="text-3xl font-bold text-center text-white mb-10">
           Plug Synq into the tools you already use
         </h1>
 
@@ -125,7 +125,7 @@ function IntegrationsContent() {
           {/* Dev Focused */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-2xl text-black font-semibold">Dev Focused</h2>
+              <h2 className="text-2xl text-white font-semibold">Dev Focused</h2>
             </div>
             <div className="grid grid-cols-4 gap-4">
               {categories[0].items.map((tool) => (
@@ -138,7 +138,7 @@ function IntegrationsContent() {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-2xl text-black font-semibold">
+                <h2 className="text-2xl text-white font-semibold">
                   Task & Project Management
                 </h2>
               </div>
@@ -153,7 +153,7 @@ function IntegrationsContent() {
 
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-2xl text-black font-semibold">
+                <h2 className="text-2xl text-white font-semibold">
                   Design Focused
                 </h2>
               </div>
@@ -169,7 +169,7 @@ function IntegrationsContent() {
           <div className="grid grid-cols-2 gap-10">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-2xl text-black font-semibold">
+                <h2 className="text-2xl text-white font-semibold">
                   Storage & Docs
                 </h2>
               </div>
@@ -182,7 +182,7 @@ function IntegrationsContent() {
 
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-2xl text-black font-semibold">
+                <h2 className="text-2xl text-white font-semibold">
                   Optional Extras (Pro UX)
                 </h2>
               </div>
@@ -198,7 +198,7 @@ function IntegrationsContent() {
         {/* Continue button */}
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-violet-600 text-white text-lg font-medium hover:bg-violet-600 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-[#6B48FF] shadow-md mb-6"
         >
           Continue
         </button>
@@ -207,7 +207,7 @@ function IntegrationsContent() {
         <div className="flex items-center">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-600 hover:text-black"
+            className="flex items-center gap-1 text-white hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
