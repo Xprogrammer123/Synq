@@ -91,7 +91,7 @@ function IntegrationsContent() {
         className={`flex items-center justify-between rounded-xl border px-4 py-4 transition w-full ${
           isActive
             ? "bg-[#6B48FF] text-white border-violet-400"
-            : "bg-violet-900/10 border-violet-800 text-gray-200 hover:border-violet-400"
+            : "bg-violet-900/10 border-violet-900 text-gray-200 hover:border-violet-400"
         }`}
       >
         <div className="flex items-center gap-2">
@@ -109,7 +109,7 @@ function IntegrationsContent() {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center bg-[#151515] p-6 ${dmSans.className}`}
+      className={`min-h-screen flex items-center justify-center bg-black p-6 ${dmSans.className}`}
     >
       <div className="w-full max-w-4xl rounded-3xl bg-[#151515] shadow-2xl p-10">
         {/* Logo */}

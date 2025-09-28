@@ -92,9 +92,9 @@ export default function Welcome() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-gray-800 transition disabled:opacity-50"
+            className="w-full rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-violet-800 transition disabled:opacity-50"
           >
-            {loading ? "Sending..." : "Get Started"}
+            {loading ? "Sending Link..." : "Get Started"}
           </button>
         </form>
       </div>

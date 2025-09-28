@@ -59,7 +59,7 @@ export default function AddProfile() {
 
                         <label
                             htmlFor="fileInput"
-                            className="absolute bottom-2 right-2 bg-[#6B48FF] text-white p-3 rounded-full shadow-md hover:bg-gray-800 cursor-pointer"
+                            className="absolute bottom-2 right-2 bg-[#6B48FF] text-white p-3 rounded-full shadow-md hover:bg-[#151515] cursor-pointer"
                         >
                             <PencilLine className="w-5 h-5" />
                         </label>
@@ -77,7 +77,7 @@ export default function AddProfile() {
                 <button
                     onClick={handleSubmit}
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+                    className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-violet-800 shadow-md mb-6"
                 >
                     Continue
                 </button>

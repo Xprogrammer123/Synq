@@ -98,7 +98,7 @@ export default function SyncIntegrations() {
               className={`relative flex flex-col items-start rounded-2xl px-6 py-3 border transition text-left ${
                 selected === item.id
                   ? "bg-[#6B48FF] text-gray-200 border-black"
-                  : "bg-violet-800/10 border-violet-800 text-white hover:border-violet-400"
+                  : "bg-violet-800/10 border-violet-900 text-white hover:border-violet-400"
               }`}
             >
               <div className="flex items-center gap-2 mb-2">
@@ -135,7 +135,7 @@ export default function SyncIntegrations() {
 
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-violet-800 shadow-md mb-6"
         >
           Continue
         </button>

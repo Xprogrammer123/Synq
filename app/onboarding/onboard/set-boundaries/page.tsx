@@ -126,7 +126,7 @@ function BoundariesContent() {
 
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-violet-800 shadow-md mb-6"
         >
           Continue to Sync
         </button>
@@ -144,7 +144,7 @@ function BoundariesContent() {
 
       {/* Loading Modal */}
       {loading && (
-        <div className="absolute inset-0 bg-[#6B48FF]/40 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-[#151515] rounded-2xl shadow-lg p-10 flex flex-col items-center gap-4 w-[90%] max-w-xl">
             <div className="flex flex-col items-center gap-4 mb-6">
               <Image src="/Synqicon.png" alt="Synq Logo" width={50} height={50} />

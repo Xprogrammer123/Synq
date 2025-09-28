@@ -69,7 +69,7 @@ export default function SelectRole() {
         {/* Continue button */}
         <button
           onClick={handleContinue}
-          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-gray-900 shadow-md mb-6"
+          className="w-full py-3 rounded-xl bg-[#6B48FF] text-white text-lg font-medium hover:bg-violet-800 shadow-md mb-6"
         >
           Continue
         </button>

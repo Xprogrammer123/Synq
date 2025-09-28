@@ -67,7 +67,7 @@ function LinkSentContent() {
               href={mailUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-gray-800 transition mb-3"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-[#151515] transition mb-3"
             >
               <Mail size={18} />
               Go to Mail
@@ -92,7 +92,7 @@ function LinkSentContent() {
             </p>
             <a
               href="/onboarding/auth/welcome"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-gray-800 transition"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-[#151515] transition"
             >
               <ArrowLeft size={18} />
               Go Back

@@ -8,7 +8,7 @@ export default function MagicLinkSent() {
 
    const router = useRouter();
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-black">
       <div className="w-full max-w-xl rounded-3xl bg-[#151515] p-10 shadow-lg relative">
         {/* Success state */}
         <div className="flex justify-center mb-5">
@@ -24,7 +24,7 @@ export default function MagicLinkSent() {
           You&apos;re all Synq&apos;d up
         </h2>
         <p
-          className="text-gray-700 mt-2 text-center mb-8 "
+          className="text-gray-400 mt-2 text-center mb-8 "
           style={{ fontFamily: "DM Sans, sans-serif" }}
         >
           Here&apos;s a preview of your synced data.<br />
@@ -32,7 +32,7 @@ export default function MagicLinkSent() {
         </p>
         <a
           href="/dashboard"
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-md font-semibold text-white hover:bg-gray-800 transition mb-3"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-md font-semibold text-white hover:bg-violet-800 transition mb-3"
         >
 
           Go to Dashboard
@@ -40,7 +40,7 @@ export default function MagicLinkSent() {
         <div className="flex items-center justify-between">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-gray-400 hover:text-white"
+            className="flex items-center gap-1 text-white hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
