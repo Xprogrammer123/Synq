@@ -24,19 +24,25 @@ export default function Header() {
           <div className="flex items-center gap-10 min-w-[240px]">
             <div className="flex items-center gap-3">
               <div className="hidden md:block">
-                <Image src="/Synqicon.png" alt="" width={30} height={20}/>
+                <Image src="/Synqicon.png" alt="" width={30} height={20} />
               </div>
             </div>
 
             <Dropdown
-              trigger={<button className="rounded-full px-8 py-4 bg-[#151515] text-sm">Developer <span className="ml-1">▾</span></button>}
+              trigger={
+                <button className="flex items-center gap-2 rounded-full px-6 py-3 bg-[#151515] text-sm text-white hover:bg-[#1E1E1E] transition">
+                  Developer
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              }
             >
-              <div className="text-sm text-gray-200 bg-[#151515] rounded-xl">
-                <div className="px-3 py-2 hover:bg-[#151515] rounded">Switch Workspace</div>
-                <div className="px-3 py-2 hover:bg-[#151515] rounded">Invite members</div>
-                <div className="px-3 py-2 hover:bg-[#151515] rounded">Workspace settings</div>
+              <div className="text-sm text-gray-200 bg-[#151515] border border-gray-800 rounded-xl shadow-lg overflow-hidden">
+                <div className="px-4 py-2 hover:bg-[#1E1E1E] cursor-pointer">Switch Workspace</div>
+                <div className="px-4 py-2 hover:bg-[#1E1E1E] cursor-pointer">Invite Members</div>
+                <div className="px-4 py-2 hover:bg-[#1E1E1E] cursor-pointer">Workspace Settings</div>
               </div>
             </Dropdown>
+
           </div>
 
           {/* center: big search */}
@@ -46,7 +52,7 @@ export default function Header() {
               <input
                 className=" bg-[#151515] w-full rounded-full px-14 py-4 search-pill text-sm placeholder:text-zinc-700 focus:outline-none"
                 placeholder="Search (docs, tasks, meetings...)"
-                onKeyDown={(e) => {}}
+                onKeyDown={(e) => { }}
               />
               <div className="absolute right-4 top-3 text-xs text-gray-400 px-2 py-1 rounded">Ctrl • K</div>
             </div>
@@ -82,7 +88,7 @@ export default function Header() {
             <Dropdown
               trigger={
                 <div className="flex items-center gap-3 p-3 rounded-full bg-[#151515] hover:bg-[#151515]">
-                  <Image src="/Synqicon.png" alt="" width={30} height={20}/>
+                  <Image src="/Synqicon.png" alt="" width={30} height={20} />
                   <div className="hidden sm:block text-sm">Judah Oyedele</div>
                   <ChevronDown />
                 </div>
@@ -93,7 +99,7 @@ export default function Header() {
                 <div className="px-3 py-2 hover:bg-[#151515] rounded">Profile</div>
                 <div className="px-3 py-2 hover:bg-[#151515] rounded">Settings</div>
                 <div className="px-3 py-2 hover:bg-[#151515] rounded">Sign out</div>
-                
+
               </div>
             </Dropdown>
           </div>
