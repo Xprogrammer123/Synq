@@ -1,6 +1,15 @@
+"use client"
+
 import { FileText, Users, Upload, Zap, ExternalLink, Wrench, RefreshCw, AlertTriangle, Search as SearchIcon, FilterIcon, Monitor } from "lucide-react";
 import Image from "next/image"
+import { useState } from "react";
+import WorkspaceModal from "./components/workspaceModal";
+
+
 export default function Page() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="grid grid-cols-12 gap-6">
       {/* LEFT SIDE */}
@@ -200,20 +209,22 @@ export default function Page() {
       {/* RIGHT SIDE */}
       <div className="col-span-4 space-y-6">
         {/* Workspace Setup */}
-        <div className="rounded-2xl p-[1px] bg-gradient-to-b from-black/90 to-[#6B48FF]/20">
+        <div className="rounded-2xl p-[1px] bg-gradient-to-b from-black/90 to-[#6B48FF]/10">
           <div className="rounded-2xl bg-gradient-to-b from-black/95 to-[#6B48FF]/2 py-18 text-center">
             <h2 className="text-xl font-semibold text-white mb-2">Let's set up your workspace!</h2>
             <p className="text-sm text-gray-400 mb-4">
               Name your workspace and invite your team to get started.
             </p>
 
-            <button className="px-5 py-2 mx-auto bg-gradient-to-b from-[#8C6BFF] to-[#6B48FF] rounded-lg text-white font-medium hover:from-[#7a5cff] hover:to-[#5a3be6] transition flex items-center justify-center gap-2">
+            <button className="px-5 py-2 mx-auto bg-gradient-to-b from-[#8C6BFF] to-[#6B48FF] rounded-full text-white font-medium hover:from-[#7a5cff] hover:to-[#5a3be6] transition flex items-center justify-center gap-2" onClick={() => setIsModalOpen(true)}>
               <Monitor className="w-5 h-5" />
               Create Workspace
             </button>
           </div>
         </div>
 
+ 
+        <WorkspaceModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
         {/* Project Snapshot */}
         <div className="rounded-lg bg-[#151515] border border-gray-800 p-5 flex flex-col">

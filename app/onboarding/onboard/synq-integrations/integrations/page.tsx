@@ -82,7 +82,7 @@ function IntegrationsContent() {
     }
   };
 
-  // 🔹 Properly typed IntegrationCard
+ 
   const IntegrationCard = ({ tool }: { tool: Tool }) => {
     const isActive = selected.includes(tool.id);
     return (

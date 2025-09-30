@@ -3,20 +3,20 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Home, LayoutList, Layers, Zap, Folder, FileText, BarChart2, Settings, Menu, ChevronLeft, Archive, Monitor, Cpu } from "lucide-react";
+import { Home, LayoutList, Layers, Zap, Folder, FileText, BarChart2, Settings, Menu, ChevronLeft, Archive, Monitor, Cpu,Unplug, ChartPie } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Nav = { href: string; label: string; icon: React.ReactNode; };
 
 const NAV: Nav[] = [
   { href: "/", label: "Home", icon: <Home className="w-5 h-5" /> },
-  { href: "/projects", label: "Projects", icon: <Archive  className="w-5 h-5" /> },
-  { href: "/workspace", label: "Workspace", icon: <Monitor className="w-5 h-5" /> },
-  { href: "/workflows", label: "Workflows / Automations", icon: <Cpu className="w-5 h-5" /> },
-  { href: "/apps", label: "Apps", icon: <Folder className="w-5 h-5" /> },
-  { href: "/documents", label: "Documents", icon: <FileText className="w-5 h-5" /> },
-  { href: "/analytics", label: "Analytics", icon: <BarChart2 className="w-5 h-5" /> },
-  { href: "/settings", label: "Settings", icon: <Settings className="w-5 h-5" /> },
+  { href: "/dashboard/projects", label: "Projects", icon: <Archive  className="w-5 h-5" /> },
+  { href: "/dashboard/workspace", label: "Workspace", icon: <Monitor className="w-5 h-5" /> },
+  { href: "/dashboard/workflows", label: "Workflows / Automations", icon: <Cpu className="w-5 h-5" /> },
+  { href: "/dashboard/apps", label: "Apps", icon: <Unplug className="w-5 h-5" /> },
+  { href: "/dashboard/documents", label: "Documents", icon: <Folder className="w-5 h-5" /> },
+  { href: "/dashboard/analytics", label: "Analytics", icon: <ChartPie className="w-5 h-5" /> },
+  { href: "/dashboard/settings", label: "Settings", icon: <Settings className="w-5 h-5" /> },
 ];
 
 export default function Sidebar() {
