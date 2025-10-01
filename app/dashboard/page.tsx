@@ -1,9 +1,10 @@
 "use client"
 
-import { FileText, Users, Upload, Zap, ExternalLink, Wrench, RefreshCw, AlertTriangle, Search as SearchIcon, FilterIcon, Monitor } from "lucide-react";
+import { FileText, Users, Upload, Zap, ExternalLink, Wrench, RefreshCw, AlertTriangle, Search as SearchIcon, FilterIcon, Monitor, Cpu } from "lucide-react";
 import Image from "next/image"
 import { useState } from "react";
 import WorkspaceModal from "./components/workspaceModal";
+import SynqHalf from "@/public/icons/SynqHalf";
 
 
 export default function Page() {
@@ -16,43 +17,51 @@ export default function Page() {
       <div className="col-span-8 space-y-6">
         {/* Buttons */}
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+          <button className="flex border-2 border-[#6B48FF]/15 overflow-hidden items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+            <div className='z-10 flex items-center gap-2'>
             <FileText className="w-5 h-5 text-[#6B48FF]" />
             New Doc
-            <span className="absolute inset-x-0 bottom-0 h-[90%] bg-[radial-gradient(ellipse_at_bottom,rgba(107,72,255,0.35),transparent_70%)] pointer-events-none"></span>
+            </div>
+            <span className="absolute inset-x-0 -bottom-12 blur-xl h-[90%] bg-[#6B48FF] pointer-events-none"></span>
           </button>
 
-          <button className="flex items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+          <button className="flex border-2 border-[#6B48FF]/15 overflow-hidden items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+          <div className='z-10 flex items-center gap-2'>
             <Users className="w-5 h-5 text-[#6B48FF]" />
             New Meeting
-            <span className="absolute inset-x-0 bottom-0 h-[90%] bg-[radial-gradient(ellipse_at_bottom,rgba(107,72,255,0.35),transparent_70%)] pointer-events-none"></span>
+            </div>
+            <span className="absolute inset-x-0 -bottom-12 blur-xl h-[90%] bg-[#6B48FF] pointer-events-none"></span>
           </button>
 
-          <button className="flex items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
-            <Zap className="w-5 h-5 text-[#6B48FF]" />
+          <button className="flex border-2 border-[#6B48FF]/15 overflow-hidden items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+          <div className='z-10 flex items-center gap-2'>
+            <Cpu className="w-5 h-5 text-[#6B48FF]" />
             Trigger Workflow
-            <span className="absolute inset-x-0 bottom-0 h-[90%] bg-[radial-gradient(ellipse_at_bottom,rgba(107,72,255,0.35),transparent_70%)] pointer-events-none"></span>
+            </div>
+            <span className="absolute inset-x-0 -bottom-12 blur-xl h-[90%] bg-[#6B48FF] pointer-events-none"></span>
           </button>
 
-          <button className="flex items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+          <button className="flex border-2 border-[#6B48FF]/15 overflow-hidden items-center gap-2 rounded-lg bg-[#151515] relative px-4 py-4 text-sm w-full font-medium text-gray-200 hover:bg-[#1c1c1c] transition justify-center">
+          <div className='z-10 flex items-center gap-2'>
             <Upload className="w-5 h-5 text-[#6B48FF]" />
             Upload File
-            <span className="absolute inset-x-0 bottom-0 h-[90%] bg-[radial-gradient(ellipse_at_bottom,rgba(107,72,255,0.35),transparent_70%)] pointer-events-none"></span>
+            </div>
+            <span className="absolute inset-x-0 -bottom-12 blur-xl h-[90%] bg-[#6B48FF] pointer-events-none"></span>
           </button>
         </div>
 
         {/* Counters */}
-        <div className="grid grid-cols-4 gap-4 bg-[#151515] py-9 px-5 border border-zinc-800 rounded-2xl">
+        <div className="grid grid-cols-4 gap-4 bg-gradient-to-r from-white/5 to-white/2 py-4  border border-zinc-800 rounded-2xl">
           {[
             { label: "Active Projects", value: "7" },
             { label: "Running Automations", value: "3" },
             { label: "Total Docs", value: "124" },
             { label: "Storage", value: "72% used" },
           ].map((item, idx) => (
-            <div key={item.label} className="relative flex flex-col items-start justify-center ml-14">
-              <div className="text-sm text-gray-400">{item.label}</div>
+            <div key={item.label} className="relative border-r border-white/5 ml-5 py-3 flex flex-col items-start justify-between">
+              <div className="text-sm font-light mb-1 text-white/40">{item.label}</div>
               <div className="text-3xl font-bold">{item.value}</div>
-              {idx !== 3 && <span className="absolute right-4 top-1.2 h-20 w-px bg-zinc-800"></span>}
+              
             </div>
           ))}
         </div>
@@ -60,17 +69,17 @@ export default function Page() {
         {/* Tasks and automation */}
         <div className="rounded-lg bg-[#151515] border border-gray-800 p-5 flex flex-col">
           <div className="font-semibold text-base mb-4">Tasks and Automation</div>
-          <div className="flex-1 bg-[#1E1E1E] shadow-md rounded-xl pb-14 overflow-x-auto">
+          <div className="flex-1 shadow-md rounded-xl pb-14 overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr className="text-gray-400 border-b border-gray-800">
+                <tr className="text-gray-400 border-b border-white/5">
                   <th className="py-3 px-4 font-medium text-left">Type</th>
                   <th className="py-3 px-4 font-medium text-center">Description</th>
                   <th className="py-3 px-4 font-medium text-right">Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr className="border-b border-gray-800">
+              <tbody className="rounded-2xl bg-white/5">
+                <tr className="border-b rounded-t-2xl border-white/5">
                   <td className="py-4 px-4 text-left">Automation</td>
                   <td className="py-4 px-4 text-center">
                     <div className="flex items-center justify-center gap-2">
@@ -95,10 +104,8 @@ export default function Page() {
                     Failed – <span className="underline">Check Logs</span>
                     <AlertTriangle className="w-5 h-5 text-yellow-300" />
                   </td>
-
                 </tr>
               </tbody>
-
             </table>
           </div>
           <div className="flex justify-end mt-3">
@@ -208,17 +215,25 @@ export default function Page() {
 
       {/* RIGHT SIDE */}
       <div className="col-span-4 space-y-6">
-        {/* Workspace Setup */}
-        <div className="rounded-2xl p-[1px] bg-gradient-to-b from-black/90 to-[#6B48FF]/10">
-          <div className="rounded-2xl bg-gradient-to-b from-black/95 to-[#6B48FF]/2 py-18 text-center">
+        {/* Workspace Setup */} 
+        <div className="rounded-2xl border border-white/10 overflow-hidden p-[1px] relative">
+        <div className="absolute -top-24 -rotate-15 -left-12">
+          <SynqHalf size={280} color="#FFFFFF07" />
+        </div>
+        <div className="absolute -bottom-24 rotate-165 -right-12">
+          <SynqHalf size={280} color="#FFFFFF07" />
+        </div>
+        <div className='w-full h-40 bg-[#6B48FF]/25 blur-3xl -bottom-24 absolute'></div>
+          <div className="rounded-2xl  py-18 text-center">
             <h2 className="text-xl font-semibold text-white mb-2">Let's set up your workspace!</h2>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-sm text-white/50 mx-12 mb-4">
               Name your workspace and invite your team to get started.
             </p>
 
-            <button className="px-5 py-2 mx-auto bg-gradient-to-b from-[#8C6BFF] to-[#6B48FF] rounded-full text-white font-medium hover:from-[#7a5cff] hover:to-[#5a3be6] transition flex items-center justify-center gap-2" onClick={() => setIsModalOpen(true)}>
+            <button className="px-5 py-[10px] relative overflow-hidden mx-auto bg-[#6B48FF] rounded-full text-white font-medium hover:from-[#7a5cff] hover:to-[#5a3be6] transition flex items-center justify-center gap-2" onClick={() => setIsModalOpen(true)}>
               <Monitor className="w-5 h-5" />
               Create Workspace
+            <span className="bg-white w-24 mx-auto -bottom-12 h-12 absolute blur-xl"></span>
             </button>
           </div>
         </div>
