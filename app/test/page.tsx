@@ -1,10 +1,11 @@
 "use client"; // keep if using App Router, remove if using Pages Router
 
+import apiFetch from "@/utils/api";
 import { useState } from "react";
 
 export default function GithubPage() {
   const API_BASE = process.env.NEXT_PUBLIC_API_URL;
-  const [output, setOutput] = useState(null);
+  const [output, setOutput] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -14,30 +15,16 @@ export default function GithubPage() {
   const [bio, setBio] = useState("");
   const [location, setLocation] = useState("");
 
-  async function callAPI(path, method = "GET", body = null) {
+  const fetchRepos = async () => {
     try {
-      setLoading(true);
-      setError(null);
-      setOutput(null);
-
-      const res = await fetch(`${API_BASE}${path}`, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", 
-        body: body ? JSON.stringify(body) : null,
-      });
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Request failed");
-
-      setOutput(data);
-    } catch (err) {
-      console.error("API Error:", err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
+      const data = await apiFetch("/api/github/repos");
+      setOutput(JSON.stringify(data, null, 2));
+    } catch (err: any) {
+      setOutput("❌ " + err.message);
     }
-  }
+  };
+
+
 
   return (
     <div className="min-h-screen p-8 space-y-6">
@@ -76,13 +63,11 @@ export default function GithubPage() {
         <div className="flex gap-2">
           <button
             className="px-4 py-2 bg-green-600 text-white rounded"
-            onClick={() => callAPI("/profile")}
           >
             Get Profile
           </button>
           <button
             className="px-4 py-2 bg-yellow-600 text-white rounded"
-            onClick={() => callAPI("/profile", "PATCH", { bio, location })}
           >
             Update Profile
           </button>
@@ -111,44 +96,34 @@ export default function GithubPage() {
         <div className="flex gap-2 flex-wrap">
           <button
             className="px-4 py-2 bg-green-600 text-white rounded"
-            onClick={() => callAPI("/repos")}
+            onClick={fetchRepos}
           >
             List Repos
           </button>
           <button
             className="px-4 py-2 bg-blue-600 text-white rounded"
-            onClick={() =>
-              callAPI("/repos", "POST", { name: repoName || "new-repo", private: false })
-            }
+            
           >
             Create Repo
           </button>
           <button
             className="px-4 py-2 bg-yellow-600 text-white rounded"
-            onClick={() =>
-              callAPI(`/repos/${owner}/${repoName}`, "PATCH", {
-                description: "Updated repo via UI",
-                private: true,
-              })
-            }
+            
           >
             Update Repo
           </button>
           <button
             className="px-4 py-2 bg-red-600 text-white rounded"
-            onClick={() => callAPI(`/repos/${owner}/${repoName}`, "DELETE")}
           >
             Delete Repo
           </button>
           <button
             className="px-4 py-2 bg-purple-600 text-white rounded"
-            onClick={() => callAPI(`/repos/${owner}/${repoName}/branches`)}
           >
             Get Branches
           </button>
           <button
             className="px-4 py-2 bg-indigo-600 text-white rounded"
-            onClick={() => callAPI(`/repos/${owner}/${repoName}/topics`)}
           >
             Get Topics
           </button>
@@ -161,9 +136,9 @@ export default function GithubPage() {
         {loading && <p className="text-blue-600">Loading...</p>}
         {error && <p className="text-red-600">Error: {error}</p>}
         {output && (
-          <pre className="bg-white p-4 rounded shadow overflow-x-auto">
-            {JSON.stringify(output, null, 2)}
-          </pre>
+          <pre className="mt-6 p-4 text-white bg-gray-900 rounded text-sm overflow-auto max-h-[500px]">
+          {output}
+        </pre>
         )}
       </section>
     </div>

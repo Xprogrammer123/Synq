@@ -51,14 +51,14 @@ export default function Page() {
         </div>
 
         {/* Counters */}
-        <div className="grid grid-cols-4 gap-4 bg-gradient-to-r from-white/5 to-white/2 py-4  border border-zinc-800 rounded-2xl">
+        <div className="grid grid-cols-4 gap-4 bg-gradient-to-r from-white/5 to-white/2 py-4 border border-zinc-800 rounded-2xl">
           {[
             { label: "Active Projects", value: "7" },
             { label: "Running Automations", value: "3" },
             { label: "Total Docs", value: "124" },
             { label: "Storage", value: "72% used" },
           ].map((item, idx) => (
-            <div key={item.label} className="relative border-r border-white/5 ml-5 py-3 flex flex-col items-start justify-between">
+            <div key={item.label} className="relative border-r border-white/5 ml-1 py-3 flex flex-col items-start justify-between">
               <div className="text-sm font-light mb-1 text-white/40">{item.label}</div>
               <div className="text-3xl font-bold">{item.value}</div>
               

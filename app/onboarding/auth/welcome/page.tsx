@@ -18,27 +18,49 @@ export default function Welcome() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
+  
     try {
+      if (!email || !email.includes("@")) throw new Error("Invalid email.");
+      if (!name || name.trim().length < 2) throw new Error("Invalid name.");
+  
+      if (!API_URL) throw new Error("API_URL is not defined. Check NEXT_PUBLIC_API_URL in .env.local");
+  
       const res = await fetch(`${API_URL}/auth/request-link`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim() }),
       });
-
-      if (res.ok) {
-        router.push(`link-sent?status=success&email=${encodeURIComponent(email)}`);
-      } else {
-        router.push(`link-sent?status=error&email=${encodeURIComponent(email)}`);
+  
+      // handle response
+      let data: any = {};
+      try {
+        const text = await res.text();
+        data = text ? JSON.parse(text) : {};
+      } catch {
+        data = {};
       }
-    } catch (err) {
-      console.error("Request link error:", err);
-      router.push(`link-sent?status=error&email=${encodeURIComponent(email)}`);
-    }
-    finally {
+  
+      if (!res.ok) throw new Error(data?.message || `Request failed (${res.status})`);
+  
+      router.push(
+        `link-sent?status=success&email=${encodeURIComponent(email)}&message=${encodeURIComponent(
+          data?.message || "Link sent successfully"
+        )}`
+      );
+    } catch (err: any) {
+      console.error("Request link error:", err.message || err);
+  
+      router.push(
+        `link-sent?status=error&email=${encodeURIComponent(email)}&message=${encodeURIComponent(
+          err?.message || "Something went wrong"
+        )}`
+      );
+    } finally {
       setLoading(false);
     }
   };
+  
+  
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black">
