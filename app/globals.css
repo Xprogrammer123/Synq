@@ -4,6 +4,10 @@
   src: url("/DMSans-VariableFont_opsz\,wght.ttf");
 }
 
+@theme {
+  --color-base: #6B48FF;
+}
+
 * {
   font-family: "DM Sans", sans-serif;
 }

@@ -52,7 +52,7 @@ function LinkSentContent() {
               />
             </div>
             <h2
-              className="mt-4 text-4xl font-bold text-white text-center"
+              className="mt-4 text-4xl font-semibold text-white text-center"
               style={{ fontFamily: "SF Pro Display, sans-serif" }}
             >
               Magic Link sent!
@@ -67,7 +67,7 @@ function LinkSentContent() {
               href={mailUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:bg-[#151515] transition mb-3"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6B48FF] py-4 text-sm font-semibold text-white hover:opacity-90 transition mb-3"
             >
               <Mail size={18} />
               Go to Mail

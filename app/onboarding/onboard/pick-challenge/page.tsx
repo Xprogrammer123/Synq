@@ -64,7 +64,7 @@ export default function PickChallenges() {
                 checked={selected.includes(challenge)}
                 onChange={() => toggleChallenge(challenge)}
                 className="appearance-none w-5 h-5 rounded-full border-2 border-violet-700 
-                           checked:bg-[#6B48FF] checked:border-white"
+                           checked:bg-[#FFF] checked:border-white"
               />
               {challenge}
             </label>
