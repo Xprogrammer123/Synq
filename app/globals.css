@@ -3,20 +3,35 @@
   font-family: DM Sans;
   src: url("/DMSans-VariableFont_opsz\,wght.ttf");
 }
+@font-face {
+  font-family: SF Pro;
+  src: url("/SFPRODISPLAYREGULAR.OTF");
+}
 
 @theme {
   --color-base: #6B48FF;
 }
 
 * {
-  font-family: "DM Sans", sans-serif;
+  letter-spacing: -0.5px;
+}
+
+h1, .sf {
+  font-family: "SF Pro", sans-serif;
 }
 
 body {
+  font-family: "DM Sans", sans-serif;
   background-color: #090909;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 
+.scroll::-webkit-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  display: none; /* Chrome, Safari, Edge */
+}
 
 .loader {
   width: 35px;

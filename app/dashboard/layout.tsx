@@ -14,16 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen text-white">
-      
+      <body className="h-screen overflow-hidden scroll text-white">
         <Header />
-
-        
-        <div className="flex">
+        <div className="flex h-full">
           <Sidebar />
-
           {/* Main dashboard content */}
-          <main className="flex-1 p-6 overflow-y-auto">{children}</main>
+          <main className="flex-1 h-full p-6 overflow-y-auto">{children}</main>
         </div>
       </body>
     </html>
