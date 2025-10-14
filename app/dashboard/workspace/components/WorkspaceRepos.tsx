@@ -59,7 +59,8 @@ const WorkspaceRepos = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-64 text-gray-400">
+      <div className="flex flex-col gap-5 items-center justify-center h-64 text-gray-400">
+        <div className="loader"></div>
         Loading repositories...
       </div>
     );
