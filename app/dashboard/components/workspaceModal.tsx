@@ -8,7 +8,7 @@ import {
   ChevronsLeftRightEllipsis,
   UserPen,
   ArrowRight,
-  Trash2,
+  Trash3,
   Plus,
   Copy,
   User
@@ -63,9 +63,9 @@ export default function WorkspaceModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
-      <div className="rounded-2xl p-[1px] bg-gradient-to-b from-black to-[#6B48FF]/10">
-        <div className="rounded-2xl bg-gradient-to-b from-black to-[#6B48FF]/20 p-8 w-xl border border-gray-800 relative">
+    <div className="fixed inset-0 flex items-center backdrop-blur-lg justify-center bg-black/70 z-50">
+      <div className="rounded-2xl p-[1px] bg-gradient-to-b from-[#0E0E0E] to-[#6B48FF]/10">
+        <div className="rounded-2xl bg-gradient-to-b backdrop-blur-2xl from-[#0E0E0E] to-[#6B48FF]/20 p-8 w-xl border border-gray-800 relative">
 
           <div className="text-center text-white">
             {/* Step 1 */}
@@ -79,35 +79,35 @@ export default function WorkspaceModal({ isOpen, onClose }) {
                   <div className="w-3 h-3 rounded-full bg-[#151515]"></div>
                 </div>
 
-                <h2 className="text-lg font-semibold mb-4 text-center">
+                <h1 className="text-lg font-semibold mb-4 text-center">
                   Let’s set up your workspace
-                </h2>
-                <h3 className="text-3xl font-bold text-center mb-2">
+                </h1>
+                <h1 className="text-3xl font-bold text-center mb-2">
                   What’s your role here?
-                </h3>
-                <p className="text-xs text-gray-500 text-center mb-6">
+                </h1>
+                <p className="text-sm text-white/50 text-center mb-6">
                   Choose the role that’ll best describe how you’ll use this
                   workspace
                 </p>
 
                 {/* Role Buttons */}
                 <div className="grid grid-cols-3 gap-4 mb-4">
-                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
-                    <UserLock className="w-4 h-4 text-[#6B48FF] group-hover:text-black" />
+                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-white transition-all duration-300">
+                    <UserLock className="w-4 h-4 text-[#6B48FF] group-hover:text-white transition-all duration-300" />
                     <span>Admin</span>
                   </button>
-                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
-                    <PenTool className="w-4 h-4 text-[#6B48FF] group-hover:text-black" />
+                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-white transition-all duration-300">
+                    <PenTool className="w-4 h-4 text-[#6B48FF] group-hover:text-white transition-all duration-300" />
                     <span>Designer</span>
                   </button>
-                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
-                    <ChevronsLeftRightEllipsis className="w-4 h-4 text-[#6B48FF] group-hover:text-black" />
+                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-white transition-all duration-300">
+                    <ChevronsLeftRightEllipsis className="w-4 h-4 text-[#6B48FF] group-hover:text-white transition-all duration-300" />
                     <span>Developer</span>
                   </button>
                 </div>
                 <div className="flex justify-center mb-6">
-                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
-                    <UserPen className="w-4 h-4 text-[#6B48FF] group-hover:text-black" />
+                  <button className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-transparent border border-gray-600 text-white text-sm group hover:bg-[#6B48FF] hover:text-white transition-all duration-300">
+                    <UserPen className="w-4 h-4 text-[#6B48FF] group-hover:text-white transition-all duration-300" />
                     <span>Project Manager</span>
                   </button>
                 </div>
@@ -135,47 +135,47 @@ export default function WorkspaceModal({ isOpen, onClose }) {
                   <div className="w-3 h-3 rounded-full bg-[#151515]"></div>
                 </div>
 
-                <h2 className="text-lg font-semibold mb-4 text-center">
+                <h1 className="text-lg font-semibold mb-4 text-center">
                   Let’s set up your workspace
-                </h2>
-                <h3 className="text-3xl font-bold text-center mb-2">
+                </h1>
+                <h1 className="text-3xl font-bold text-center mb-2">
                   Pick the tools you want to connect
-                </h3>
-                <p className="text-xs text-gray-500 text-center mb-6">
+                </h1>
+                <p className="text-sm text-white/50 text-center mb-6">
                   You can always change these later
                 </p>
 
                 <div className="grid grid-cols-3 gap-4 mb-5 w-full max-w-md">
                   {/* Example tool buttons */}
-                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
+                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-white">
                     <span className="flex items-center gap-2">
-                      <img src="icons/github2.png" alt="GitHub" className="w-5 h-5" />
+                      <img src="/icons/github2.png" alt="GitHub" className="w-5 h-5" />
                       GitHub
                     </span>
                     <span className="w-3 h-3 rounded-full bg-[#6B48FF]"></span>
                   </button>
-                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
+                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-white">
                     <span className="flex items-center gap-2">
-                      <img src="icons/figma.png" alt="Figma" className="w-5 h-5" />
+                      <img src="/icons/figma.png" alt="Figma" className="w-5 h-5" />
                       Figma
                     </span>
                     <span className="w-3 h-3 rounded-full bg-[#6B48FF]"></span>
                   </button>
-                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
+                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-white">
                     <span className="flex items-center gap-2">
-                      <img src="icons/slack.png" alt="Slack" className="w-5 h-5" />
+                      <img src="/icons/slack.png" alt="Slack" className="w-5 h-5" />
                       Slack
                     </span>
                     <span className="w-3 h-3 rounded-full bg-[#6B48FF]"></span>
                   </button>
-                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
+                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-white">
                     <span className="flex items-center gap-2">
-                      <img src="icons/notion.png" alt="Notion" className="w-5 h-5" />
+                      <img src="/icons/notion.png" alt="Notion" className="w-5 h-5" />
                       Notion
                     </span>
                     <span className="w-3 h-3 rounded-full bg-[#6B48FF]"></span>
                   </button>
-                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-black">
+                  <button className="flex items-center justify-between px-5 py-3 rounded-xl bg-transparent border border-violet-600/50 text-white text-sm group hover:bg-[#6B48FF] hover:text-white">
                     <span className="flex items-center gap-2">
                       <img src="icons/drive.png" alt="Drive" className="w-5 h-5" />
                       Drive
@@ -210,18 +210,18 @@ export default function WorkspaceModal({ isOpen, onClose }) {
                   <div className="w-3 h-3 rounded-full bg-[#151515]"></div>
                 </div>
 
-                <h2 className="text-lg font-semibold mb-2 text-center">
+                <h1 className="text-lg font-semibold mb-2 text-center">
                   Let’s set up your workspace.
-                </h2>
-                <h3 className="text-2xl font-bold mb-2 text-center">
+                </h1>
+                <h1 className="text-2xl font-bold mb-2 text-center">
                   Invite your team
-                </h3>
+                </h1>
                 <p className="text-xs text-gray-500 text-center mb-6">
                   Add teammates now or skip and invite later.
                 </p>
 
                 {/* Email Input */}
-                <div className="flex items-center bg-[#1a1a1a] rounded-lg px-3 py-2 mb-1 border border-[#2a2a2a] w-full max-w-lg gap-2">
+                <div className="flex items-center bg-white/5 rounded-lg p-3 mb-1 w-full max-w-lg gap-2">
                   <User size={18} className="text-gray-400" />
                   <input
                     type="email"
@@ -251,7 +251,7 @@ export default function WorkspaceModal({ isOpen, onClose }) {
                         onClick={() => handleDelete(e)}
                         className="text-gray-400 hover:text-red-400"
                       >
-                        <Trash2 size={16} />
+                        <Trash1 size={16} />
                       </button>
                     </div>
                   ))}
@@ -260,15 +260,15 @@ export default function WorkspaceModal({ isOpen, onClose }) {
                 <div className="flex justify-between items-center w-full max-w-lg mt-6">
                   <button
                     onClick={generateLink}
-                    className="flex items-center justify-center gap-2 bg-violet-600/5 border border-violet-600/50 text-gray-200 text-sm px-5 py-2 rounded-lg hover:bg-[#222]"
+                    className="flex items-center justify-center gap-2 bg-violet-600/5 border-2 border-base text-gray-200 text-sm px-5 py-3 rounded-lg cursor-pointer"
                   >
-                    <Copy size={16} className="text-violet-600" />
+                    <Copy size={16} className="text-base" />
                     <span>Copy Invite Link</span>
                   </button>
 
                   <button
                     onClick={handleNext}
-                    className="flex items-center justify-center gap-2 bg-[#6B48FF] hover:bg-[#5939d9] text-white text-sm font-medium px-4 py-2 rounded-lg"
+                    className="flex items-center justify-center gap-2 bg-[#6B48FF] hover:bg-[#5939d9] text-white  font-medium px-4 py-3 rounded-lg"
                   >
                     <span>Create Workspace</span>
                     <ArrowRight size={16} />
@@ -297,7 +297,7 @@ export default function WorkspaceModal({ isOpen, onClose }) {
                   <img src="/success.png" alt="Slack" className="w-20 h-20" />
 
                 </span>
-                <h2 className="text-3xl font-bold mb-2">Your workspace is Ready !</h2>
+                <h1 className="text-3xl font-bold mb-2">Your workspace is Ready !</h1>
                 <p className="text-xs text-gray-400 mb-6">
                   Jump in and start collaborating accross your favourite tools.
                 </p>

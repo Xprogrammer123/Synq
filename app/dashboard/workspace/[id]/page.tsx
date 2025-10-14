@@ -4,6 +4,7 @@ import TabSlider from '../components/TabSlider'
 import CodeSlider from '../components/CodeSlider';
 import UtilityBar from '../components/UtilityBar';
 import EmptyWorkspace from '../components/EmptyWorkspace';
+import WorkspaceRepos from '../components/WorkspaceRepos';
 
 const page = () => {
 
@@ -19,7 +20,7 @@ const page = () => {
                 <UtilityBar />
             </div>
             <div className='w-full h-full'>
-                <EmptyWorkspace />
+                <WorkspaceRepos />
             </div>
         </div>
         <div className='w-[28%] h-screen'>

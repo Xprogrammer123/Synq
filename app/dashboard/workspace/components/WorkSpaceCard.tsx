@@ -13,7 +13,7 @@ const WorkSpaceCard = () => {
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-2">
-          <h2 className="text-4xl font-bold">Phantom HQ</h2>
+          <h1 className="text-4xl font-bold">Phantom HQ</h1>
           <p className="text-white/20">Updated Yesterday </p>
         </div>
         <div className="border border-white/7 bg-white/5 flex rounded-full items-center gap-3 w-full p-3 px-5 font-medium text-[17px]">

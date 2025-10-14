@@ -18,7 +18,6 @@ export default function Header() {
 
   return (
     <>
-      <CommandDialog items={COMMAND_ITEMS} />
       <div className="header-wrapper p-5 border-b border-white/5">
         <header className="flex items-center gap-6 ">
           <div className="flex items-center gap-10 ">
