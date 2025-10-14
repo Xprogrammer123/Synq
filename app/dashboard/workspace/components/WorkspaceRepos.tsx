@@ -2,12 +2,14 @@
 import React, { useEffect, useState } from "react";
 import RepoCard from "./RepoCard";
 import apiFetch from "@/utils/api";
-
+import UtilityBar from "../components/UtilityBar";
 
 const WorkspaceRepos = () => {
   const [repos, setRepos] = useState<any[]>([]);
+  const [filteredRepos, setFilteredRepos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -17,8 +19,10 @@ const WorkspaceRepos = () => {
 
         if (res.repositories) {
           setRepos(res.repositories);
+          setFilteredRepos(res.repositories);
         } else {
           setRepos([]);
+          setFilteredRepos([]);
         }
       } catch (err: any) {
         console.error("Error fetching repos:", err);
@@ -29,10 +33,29 @@ const WorkspaceRepos = () => {
     };
 
     fetchRepos();
+  }, []);
 
-}, []); // runs once on mount
+  // Handle Search
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    const filtered = repos.filter((repo) =>
+      repo.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredRepos(filtered);
+  };
 
-
+  // Placeholder for future filters (e.g., language)
+  const handleFilter = (filterType: string) => {
+    if (filterType === "recent") {
+      const sorted = [...repos].sort(
+        (a, b) =>
+          new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+      );
+      setFilteredRepos(sorted);
+    } else {
+      setFilteredRepos(repos);
+    }
+  };
 
   if (loading) {
     return (
@@ -50,11 +73,17 @@ const WorkspaceRepos = () => {
     );
   }
 
-
   return (
-    <div className="grid grid-cols-3 gap-5 mt-8">
+    <div className="flex mt-5 flex-col w-full gap-5">
+      <UtilityBar
+        repoCount={filteredRepos.length}
+        onSearch={handleSearch}
+        onFilter={handleFilter}
+        searchValue={searchQuery}
+      />
+
+       <div className="grid grid-cols-3 gap-5 mt-8">
       {/* Empty State */}
-      {repos.length === 0 && (
         <div className="border items-center justify-center flex flex-col gap-5 p-10 border-white/20 rounded-2xl border-dashed">
           <h1 className="text-[1.5rem] text-center font-semibold">
             Create a new repo to get started with code
@@ -64,12 +93,11 @@ const WorkspaceRepos = () => {
             <span className="bg-white w-64 mx-auto -bottom-11 h-12 absolute blur-xl"></span>
           </button>
         </div>
-      )}
-
       {/* Repo List */}
-      {repos.map((repo) => (
+      {filteredRepos.map((repo) => (
         <RepoCard key={repo.id} repo={repo} />
       ))}
+    </div>
     </div>
   );
 };
