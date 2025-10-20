@@ -8,7 +8,7 @@ interface UtilityBarProps {
   searchValue: string;
 }
 
-const UtilityBar = ({
+const CodeUtilityBar = ({
   repoCount,
   onSearch,
   onFilter,
@@ -75,4 +75,4 @@ const UtilityBar = ({
   );
 };
 
-export default UtilityBar;
+export default CodeUtilityBar;
