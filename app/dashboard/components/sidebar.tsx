@@ -9,12 +9,10 @@ import { cn } from "@/lib/utils";
 type Nav = { href: string; label: string; icon: React.ReactNode; };
 
 const NAV: Nav[] = [
-  { href: "/", label: "Home", icon: <LayoutGrid className="w-5 h-5" /> },
-  { href: "/dashboard/projects", label: "Projects", icon: <Archive  className="w-5 h-5" /> },
+  { href: "/dashboard", label: "Home", icon: <LayoutGrid className="w-5 h-5" /> },
   { href: "/dashboard/workspace", label: "Workspace", icon: <Monitor className="w-5 h-5" /> },
-  { href: "/dashboard/workflows", label: "Workflows / Automations", icon: <Cpu className="w-5 h-5" /> },
+  { href: "/dashboard/asknomi", label: "Ask Nomi", icon: <Cpu className="w-5 h-5" /> },
   { href: "/dashboard/apps", label: "Apps", icon: <Unplug className="w-5 h-5" /> },
-  { href: "/dashboard/documents", label: "Documents", icon: <Folder className="w-5 h-5" /> },
   { href: "/dashboard/analytics", label: "Analytics", icon: <ChartPie className="w-5 h-5" /> },
   { href: "/dashboard/settings", label: "Settings", icon: <Settings className="w-5 h-5" /> },
 ];

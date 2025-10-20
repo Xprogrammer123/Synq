@@ -8,7 +8,7 @@ interface UtilityBarProps {
   searchValue: string;
 }
 
-const UtilityBar = ({
+const CodeUtilityBar = ({
   repoCount,
   onSearch,
   onFilter,
@@ -18,6 +18,7 @@ const UtilityBar = ({
 
   return (
     <div className="flex gap-2 items-center flex-wrap">
+      <div className="flex gap-2 items-center">
       <div className="flex gap-3 mr-4 items-center">
         <p className="text-white/40 text-sm">Phantom HQ</p>
         <ChevronLeft className="h-5 w-5 text-white/40" />
@@ -25,7 +26,7 @@ const UtilityBar = ({
       </div>
 
       {/* Search */}
-      <div className="rounded-full items-center flex gap-2 bg-white/5 border border-white/7 py-[10px] px-4">
+      <div className="rounded-full items-center flex gap-2 bg-white/5 border border-white/7 py-[10px] px-4 ml-52">
         <Search className="w-[18px] h-[18px]" />
         <input
           type="text"
@@ -35,7 +36,7 @@ const UtilityBar = ({
           onChange={(e) => onSearch(e.target.value)}
         />
       </div>
-
+      </div>
       {/* Filters */}
       <div
         className="rounded-full items-center flex gap-2 bg-white/5 border border-white/7 py-[10px] px-4 text-white cursor-pointer relative"
@@ -63,7 +64,7 @@ const UtilityBar = ({
 
       {/* Repo Count */}
       <div className="rounded-full items-center flex gap-2 bg-white/5 border border-white/7 py-[10px] px-4 text-white/40">
-        <span className="text-white">{repoCount}</span> repos found
+        <span className="text-white">{repoCount}</span> repos created
       </div>
 
       {/* Org Selector */}
@@ -75,4 +76,4 @@ const UtilityBar = ({
   );
 };
 
-export default UtilityBar;
+export default CodeUtilityBar;

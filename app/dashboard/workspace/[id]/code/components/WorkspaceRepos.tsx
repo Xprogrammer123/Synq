@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import RepoCard from "./RepoCard";
 import apiFetch from "@/utils/api";
-import UtilityBar from "../components/UtilityBar";
+import CodeUtilityBar from "../components/CodeUtilityBar";
 
 const WorkspaceRepos = () => {
   const [repos, setRepos] = useState<any[]>([]);
@@ -76,15 +76,15 @@ const WorkspaceRepos = () => {
 
   return (
     <div className="flex mt-5 flex-col w-full gap-5">
-      <UtilityBar
+      <CodeUtilityBar
         repoCount={filteredRepos.length}
         onSearch={handleSearch}
         onFilter={handleFilter}
         searchValue={searchQuery}
       />
 
-       <div className="grid grid-cols-3 gap-5 mt-8">
-      {/* Empty State */}
+      <div className="grid grid-cols-3 gap-5 mt-8">
+        {/* Empty State */}
         <div className="border items-center justify-center flex flex-col gap-5 p-10 border-white/20 rounded-2xl border-dashed">
           <h1 className="text-[1.5rem] text-center font-semibold">
             Create a new repo to get started with code
@@ -94,11 +94,11 @@ const WorkspaceRepos = () => {
             <span className="bg-white w-64 mx-auto -bottom-11 h-12 absolute blur-xl"></span>
           </button>
         </div>
-      {/* Repo List */}
-      {filteredRepos.map((repo) => (
-        <RepoCard key={repo.id} repo={repo} />
-      ))}
-    </div>
+        {/* Repo List */}
+        {filteredRepos.map((repo) => (
+          <RepoCard key={repo.id} repo={repo} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -38,6 +38,9 @@ const WorkspacePage = () => {
           <WorkSpaceCard />
           <WorkSpaceCard />
           <WorkSpaceCard />
+          <WorkSpaceCard />
+          <WorkSpaceCard />
+          <WorkSpaceCard />
       </div>
     </div>
   );
